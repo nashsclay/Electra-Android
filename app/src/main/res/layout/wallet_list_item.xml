@@ -7,17 +7,17 @@
     <RelativeLayout
         android:id="@+id/wallet_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/crypto_card_shape">
+        android:layout_height="match_parent"
+        android:background="@color/primary_background">
 
         <RelativeLayout
             android:id="@+id/icon_background"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/asset_icon_background_transparent"
+            android:background="@drawable/ic_launcher"
             android:orientation="vertical">
 
             <com.breadwallet.presenter.customviews.BaseTextView
@@ -31,8 +31,8 @@
 
             <ImageView
                 android:id="@+id/currency_icon_white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true" />
         </RelativeLayout>

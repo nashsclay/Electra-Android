@@ -60,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="2dp"
-        android:background="?attr/secondary_background"
         android:footerDividersEnabled="true"
         android:headerDividersEnabled="true" />
 

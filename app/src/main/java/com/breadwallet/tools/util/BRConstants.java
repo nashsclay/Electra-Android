@@ -133,11 +133,11 @@ public final class BRConstants {
      * Social media links and privacy policy URLS
      */
 
-    public static final String URL_PRIVACY_POLICY = "https://brd.com/privacy";
-    public static final String URL_TWITTER = "https://twitter.com/brdhq";
-    public static final String URL_REDDIT = "https://www.reddit.com/r/BRDapp/";
-    public static final String URL_BLOG = "https://brd.com/blog/";
-    public static final String URL_BRD_HOST = "brd.com";
+    public static final String URL_PRIVACY_POLICY = "https://electraproject.org/privacy-policy/";
+    public static final String URL_TWITTER = "https://twitter.com/ElectracoinECA";
+    public static final String URL_REDDIT = "https://t.me/Electracoin";
+    public static final String URL_BLOG = "https://discordapp.com/invite/B8F7Jdv";
+    public static final String URL_BRD_HOST = "electraproject.org";
     public static final String WALLET_PAIR_PATH = "wallet-pair";
     public static final String WALLET_LINK_PATH = "link-wallet";
 

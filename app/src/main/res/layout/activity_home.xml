@@ -23,13 +23,13 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="28dp"
+                android:layout_width="214dp"
+                android:layout_height="67dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="60dp"
-                android:background="@drawable/brd_logo_gradient" />
+                android:layout_marginTop="40dp"
+                android:background="@drawable/eca_white" />
 
             <com.breadwallet.presenter.customviews.BaseTextView
                 android:id="@+id/total_assets_label"
@@ -68,11 +68,6 @@
                 android:paddingStart="@dimen/bread_margin"
                 android:paddingTop="@dimen/bread_margin"
                 android:paddingEnd="@dimen/bread_margin">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_wallet_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
             </LinearLayout>
 

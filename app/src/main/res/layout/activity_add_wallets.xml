@@ -19,7 +19,7 @@
                 android:id="@+id/back_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/toolbar_back_arrow" />
+                android:background="@drawable/backward3" />
 
             <com.breadwallet.presenter.customviews.BaseTextView
                 android:id="@+id/add_wallets_label"
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/toolbar"
-        android:background="?attr/secondary_background"
+        android:background="?attr/primary_background"
         android:drawableStart="@drawable/ic_search_gray_24dp"
         android:hint="@string/Search.search"
         android:inputType="textPersonName"

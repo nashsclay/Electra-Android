@@ -14,7 +14,7 @@
         android:layout_marginStart="@dimen/bread_margin"
         android:layout_marginEnd="@dimen/bread_margin"
         android:layout_marginBottom="32dp"
-        android:background="@android:color/transparent"
+        android:background="@color/primary_background"
         android:padding="10dp"
         android:text="@string/RecoverWallet.next"
         android:textColor="@color/white"
@@ -29,7 +29,6 @@
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:background="@drawable/recover_gradient"
         app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,7 +50,8 @@
             app:brdFont="@string/Font.CircularPro_Bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_constraintTop_creator="1" />
+            tools:layout_constraintTop_creator="1"
+            tools:layout_editor_absoluteY="16dp" />
 
         <ImageView
             android:layout_width="wrap_content"

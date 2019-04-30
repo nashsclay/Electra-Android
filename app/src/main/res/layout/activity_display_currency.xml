@@ -11,11 +11,11 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        app:layout_constraintTop_toTopOf="@id/title"
-        android:background="?attr/toolbar_back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backward3"
         app:layout_constraintStart_toStartOf="@id/buttons_layout"
-        android:layout_width="24dp"
-        android:layout_height="24dp" />
+        app:layout_constraintTop_toTopOf="@id/title" />
 
 
     <com.breadwallet.presenter.customviews.BaseTextView
@@ -76,10 +76,10 @@
 
         <com.breadwallet.presenter.customviews.BRButton
             android:id="@+id/left_button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1.0"
-            android:background="@drawable/b_half_left_blue"
+            android:background="@color/primary_background"
             android:text="Bits (&#384;)"
             android:textSize="14sp"
             android:padding="0dp"
@@ -92,8 +92,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:background="@drawable/b_half_right_blue_stroke"
-            android:text="ECA (e)"
+            android:background="@color/primary_background"
+            android:text="ECA (ECA)"
             android:padding="0dp"
             android:textSize="14sp"
             app:isBreadButton="false"

@@ -65,7 +65,6 @@
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:background="@drawable/import_gradient"
         app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -87,10 +86,10 @@
 
         <ImageButton
             android:id="@+id/close_button"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/bread_margin"
-            android:background="?attr/back_arrow_secondary"
+            android:background="@drawable/backward3"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="81dp" />
 

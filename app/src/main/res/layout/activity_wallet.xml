@@ -33,7 +33,7 @@
                 android:id="@+id/bread_bar"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:background="@color/currency_header_background"
+                android:background="@color/primary_background"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:contentInsetStart="0dp"
@@ -61,15 +61,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageButton
-                        android:id="@+id/back_icon"
-                        android:layout_width="58dp"
-                        android:layout_height="58dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@drawable/ic_chevron_left_white_24dp"
-                        android:padding="10dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/search_icon" />
 
                     <com.breadwallet.presenter.customviews.BaseTextView
                         android:id="@+id/currency_usd_price"
@@ -306,6 +297,8 @@
             android:id="@+id/receive_button"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
+            android:layout_alignEnd="@+id/bottom_toolbar_layout1"
+            android:layout_alignBottom="@+id/bottom_toolbar_layout1"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="22dp"
             android:layout_marginEnd="8dp"

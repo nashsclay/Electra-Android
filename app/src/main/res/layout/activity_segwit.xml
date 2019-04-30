@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:background="?attr/toolbar_back_arrow" />
+                android:background="@drawable/backward3" />
 
             <com.breadwallet.presenter.customviews.BaseTextView
                 android:id="@+id/title"

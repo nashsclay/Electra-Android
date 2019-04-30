@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-4dp"
-                android:background="@drawable/ic_arrow_left" />
+                android:background="@drawable/backward3" />
 
 
         </LinearLayout>

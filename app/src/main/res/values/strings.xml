@@ -3,13 +3,13 @@
     <!-- App name -->
     <string name="About.appName.android">Electra</string>
     <!-- About screen blog label -->
-    <string name="About.blog">Blog</string>
+    <string name="About.blog">Discord</string>
     <!-- About screen footer -->
-    <string name="About.footer">Made by the global Electra team. Version %1$s Build %2$s</string>
+    <string name="About.footer">Made by Electra team. Version %1$s Build %2$s</string>
     <!-- Privay Policy button label -->
     <string name="About.privacy">Privacy Policy</string>
     <!-- About screen reddit label -->
-    <string name="About.reddit">Reddit</string>
+    <string name="About.reddit">Telegram</string>
     <!-- Terms of Use button label -->
     <string name="About.terms">Terms of Use</string>
     <!-- About screen title -->
@@ -17,7 +17,7 @@
     <!-- About screen twitter label -->
     <string name="About.twitter">Twitter</string>
     <!-- About screen wallet ID label -->
-    <string name="About.walletID">BRD Rewards ID</string>
+    <string name="About.walletID">Electra social accounts</string>
     <!-- Close modal button accessibility label -->
     <string name="AccessibilityLabels.close">Close</string>
     <!-- Support center accessibiliy label -->
@@ -385,7 +385,7 @@
     <!-- Onboarding screen Page 4 title -->
     <string name="OnboardingPageFour.title">Start investing today with as little as $50!</string>
     <!-- Onboarding screen Page 1 title -->
-    <string name="OnboardingPageOne.title">Welcome to your new global wallet!</string>
+    <string name="OnboardingPageOne.title">Welcome to your new Electra wallet!</string>
     <!-- Onboarding screen Page 3 subtitle -->
     <string name="OnboardingPageThree.subtitle">Invest and diversify with Electra, easily and securely.</string>
     <!-- Onboarding screen Page 3 title -->

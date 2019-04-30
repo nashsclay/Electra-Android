@@ -87,7 +87,6 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
     private BaseTextView mBalancePrimary;
     private BaseTextView mBalanceSecondary;
     private Toolbar mToolbar;
-    private ImageButton mBackButton;
     private BRButton mSendButton;
     private BRButton mReceiveButton;
     private BRButton mSellButton;
@@ -125,7 +124,6 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
         mBalancePrimary = findViewById(R.id.balance_primary);
         mBalanceSecondary = findViewById(R.id.balance_secondary);
         mToolbar = findViewById(R.id.bread_bar);
-        mBackButton = findViewById(R.id.back_icon);
         mSendButton = findViewById(R.id.send_button);
         mReceiveButton = findViewById(R.id.receive_button);
         mSellButton = findViewById(R.id.sell_button);
@@ -159,14 +157,6 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
             @Override
             public void onClick(View view) {
                 UiUtils.showReceiveFragment(WalletActivity.this, true);
-            }
-        });
-
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-                finish();
             }
         });
 

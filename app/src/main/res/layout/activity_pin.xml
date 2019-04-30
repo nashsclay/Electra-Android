@@ -26,12 +26,12 @@
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="132dp"
-        android:layout_height="80dp"
+        android:layout_width="214dp"
+        android:layout_height="67dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:gravity="center_horizontal"
-        android:src="@drawable/brd_logo_gradient"
+        android:src="@drawable/eca_white"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:brdFont="@string/Font.Celevenia"

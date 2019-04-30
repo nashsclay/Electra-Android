@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@drawable/receive_layout"
+            android:background="@color/add_wallets_border_color"
             android:orientation="vertical"
             android:padding="0dp">
 

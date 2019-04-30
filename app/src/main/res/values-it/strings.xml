@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- App name -->
-    <string name="About.appName.android">BRD</string>
+    <string name="About.appName.android">Electra</string>
     <!-- About screen blog label -->
-    <string name="About.blog">Blog</string>
+    <string name="About.blog">Discord</string>
     <!-- About screen footer -->
-    <string name="About.footer">Realizzato dal Global team BRD. Versione %1$s Build %2$s</string>
+    <string name="About.footer">Made by Electra team. Version %1$s Build %2$s</string>
     <!-- Privay Policy button label -->
     <string name="About.privacy">Informativa sulla Privacy</string>
     <!-- About screen reddit label -->
-    <string name="About.reddit">Reddit</string>
+    <string name="About.reddit">Telegram</string>
     <!-- Terms of Use button label -->
     <string name="About.terms">Termini di Utilizzo</string>
     <!-- About screen title -->
@@ -383,7 +383,7 @@
     <!-- Onboarding screen Page 4 title -->
     <string name="OnboardingPageFour.title">Inizia ad investire oggi con soli $ 50!</string>
     <!-- Onboarding screen Page 1 title -->
-    <string name="OnboardingPageOne.title">Benvenuto nel tuo nuovo portafoglio globale!</string>
+    <string name="OnboardingPageOne.title">Benvenuto nel tuo nuovo portafoglio Electra!</string>
     <!-- Onboarding screen Page 3 subtitle -->
     <string name="OnboardingPageThree.subtitle">Investi e diversifica con BRD, facilmente ed in maniera sicura.</string>
     <!-- Onboarding screen Page 3 title -->

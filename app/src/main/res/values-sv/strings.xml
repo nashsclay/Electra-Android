@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- App name -->
-    <string name="About.appName.android">BRD</string>
+    <string name="About.appName.android">Electra</string>
     <!-- About screen blog label -->
-    <string name="About.blog">Blogg</string>
+    <string name="About.blog">Discord</string>
     <!-- About screen footer -->
-    <string name="About.footer">Skapad av det lokala teamet för BRD. Version %1$s Build %2$s</string>
+    <string name="About.footer">Made by Electra team. Version %1$s Build %2$s</string>
     <!-- Privay Policy button label -->
     <string name="About.privacy">Sekretesspolicy</string>
     <!-- About screen reddit label -->
-    <string name="About.reddit">Reddit</string>
+    <string name="About.reddit">Telegram</string>
     <!-- Terms of Use button label -->
     <string name="About.terms">Användarvillkor</string>
     <!-- About screen title -->
@@ -383,7 +383,7 @@
     <!-- Onboarding screen Page 4 title -->
     <string name="OnboardingPageFour.title">Börja investera idag med så lite som $50!</string>
     <!-- Onboarding screen Page 1 title -->
-    <string name="OnboardingPageOne.title">Välkommen till din nya globala plånbok!</string>
+    <string name="OnboardingPageOne.title">Välkommen till din nya Electra plånbok!</string>
     <!-- Onboarding screen Page 3 subtitle -->
     <string name="OnboardingPageThree.subtitle">Investera och bredda dig med BRD, lätt och tryggt.</string>
     <!-- Onboarding screen Page 3 title -->

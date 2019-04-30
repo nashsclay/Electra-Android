@@ -10,8 +10,7 @@
     <FrameLayout
         android:id="@+id/gradient_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/write_down_gradient">
+        android:layout_height="200dp">
 
         <com.breadwallet.presenter.customviews.BaseTextView
             android:id="@+id/title"

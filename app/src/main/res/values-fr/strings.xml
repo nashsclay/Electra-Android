@@ -3,13 +3,13 @@
     <!-- App name -->
     <string name="About.appName.android">Electra</string>
     <!-- About screen blog label -->
-    <string name="About.blog">Blog</string>
+    <string name="About.blog">Discord</string>
     <!-- About screen footer -->
-    <string name="About.footer">Produit par l\'équipe Electra. Version %1$s Build %2$s</string>
+    <string name="About.footer">Made by Electra team. Version %1$s Build %2$s</string>
     <!-- Privay Policy button label -->
     <string name="About.privacy">Politique de confidentialité</string>
     <!-- About screen reddit label -->
-    <string name="About.reddit">Reddit</string>
+    <string name="About.reddit">Telegram</string>
     <!-- Terms of Use button label -->
     <string name="About.terms">Conditions d\'utilisation</string>
     <!-- About screen title -->
@@ -383,7 +383,7 @@
     <!-- Onboarding screen Page 4 title -->
     <string name="OnboardingPageFour.title">Commencez à investir dès aujourd\'hui avec seulement 50 $ !</string>
     <!-- Onboarding screen Page 1 title -->
-    <string name="OnboardingPageOne.title">Bienvenue dans votre nouveau portefeuille international !</string>
+    <string name="OnboardingPageOne.title">Bienvenue dans votre nouveau portefeuille Electra!</string>
     <!-- Onboarding screen Page 3 subtitle -->
     <string name="OnboardingPageThree.subtitle">Investissez et diversifiez facilement et en toute sécurité avec Electra.</string>
     <!-- Onboarding screen Page 3 title -->

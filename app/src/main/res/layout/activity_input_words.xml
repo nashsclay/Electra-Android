@@ -54,7 +54,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/b_blue"
+        android:background="@color/primary_background"
         android:elevation="8dp"
         android:padding="10dp"
         android:text="@string/RecoverWallet.next"

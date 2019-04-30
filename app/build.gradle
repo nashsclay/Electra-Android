@@ -21,7 +21,7 @@ android {
     }
     defaultConfig {
         testInstrumentationRunner = 'android.support.test.runner.AndroidJUnitRunner'
-        applicationId = 'com.electrawallet'
+        applicationId = 'com.breadwallet'
         minSdkVersion 23
         targetSdkVersion 28
 
@@ -75,7 +75,7 @@ android {
     flavorDimensions "mode"
     productFlavors {
         brd {
-            applicationId = "com.electrawallet"
+            applicationId = "com.breadwallet"
             dimension "mode"
             resValue "string", "app_name", "Electra"
             buildConfigField "boolean", "BITCOIN_TESTNET", "false"
@@ -91,7 +91,7 @@ android {
             //signingConfig signingConfigs.FakeSigningConfig // Uncomment to fake sign a mainnet release build for testing.
         }
         brdTestnet {
-            applicationId = "com.electrawallet.testnet"
+            applicationId = "com.breadwallet.testnet"
             dimension "mode"
             resValue "string", "app_name", "Electra Testnet"
             buildConfigField "boolean", "BITCOIN_TESTNET", "true"
@@ -136,7 +136,7 @@ android {
         }
         debug {
             applicationIdSuffix '.debug'
-            manifestPlaceholders = [applicationIcon: "@mipmap/ic_launcher_grayscale"]
+            manifestPlaceholders = [applicationIcon: "@mipmap/ic_launcher"]
             debuggable = true
             jniDebuggable = true
             minifyEnabled = false
