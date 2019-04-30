@@ -80,8 +80,6 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     private WalletListAdapter mAdapter;
     private BaseTextView mFiatTotal;
     private BRNotificationBar mNotificationBar;
-    private ConstraintLayout mBuyLayout;
-    private LinearLayout mTradeLayout;
     private LinearLayout mMenuLayout;
     private LinearLayout mListGroupLayout;
     private MainViewModel mViewModel;
@@ -93,26 +91,9 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
         mFiatTotal = findViewById(R.id.total_assets_usd);
         mNotificationBar = findViewById(R.id.notification_bar);
-        mBuyLayout = findViewById(R.id.buy_layout);
-        mTradeLayout = findViewById(R.id.trade_layout);
         mMenuLayout = findViewById(R.id.menu_layout);
         mListGroupLayout = findViewById(R.id.list_group_layout);
 
-        mBuyLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = String.format(BRConstants.CURRENCY_PARAMETER_STRING_FORMAT,
-                        HTTPServer.getPlatformUrl(HTTPServer.URL_BUY),
-                        WalletBitcoinManager.getInstance(HomeActivity.this).getCurrencyCode());
-                UiUtils.startWebActivity(HomeActivity.this, url);
-            }
-        });
-        mTradeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UiUtils.startWebActivity(HomeActivity.this, HTTPServer.getPlatformUrl(HTTPServer.URL_TRADE));
-            }
-        });
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,11 +105,6 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         });
 
         processIntentData(getIntent());
-
-        ImageView buyBell = findViewById(R.id.buy_bell);
-        boolean isBellNeeded = BRSharedPrefs.getFeatureEnabled(this, APIClient.FeatureFlags.BUY_NOTIFICATION.toString())
-                && CurrencyUtils.isBuyNotificationNeeded(this);
-        buyBell.setVisibility(isBellNeeded ? View.VISIBLE : View.INVISIBLE);
 
         mAdapter = new WalletListAdapter(this);
 
