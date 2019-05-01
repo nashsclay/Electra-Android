@@ -75,7 +75,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presenter.activities.WalletActivity"
+            android:name=".presenter.activities.HomeActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
