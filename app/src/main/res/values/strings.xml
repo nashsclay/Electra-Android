@@ -17,7 +17,7 @@
     <!-- About screen twitter label -->
     <string name="About.twitter">Twitter</string>
     <!-- About screen wallet ID label -->
-    <string name="About.walletID">Electra social accounts</string>
+    <string name="About.walletID">Website</string>
     <!-- Close modal button accessibility label -->
     <string name="AccessibilityLabels.close">Close</string>
     <!-- Support center accessibiliy label -->
@@ -987,7 +987,7 @@
     <!-- Updating webview message -->
     <string name="Webview.updating">Updating...</string>
     <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-    <string name="Welcome.body">Electrawallet has changed its name to ECA, with a brand new look and some new features.\n\nIf you need help, look for the (?) in the top right of most screens.</string>
+    <string name="Welcome.body">Welcome to your Electra light wallet.</string>
     <!-- Top title of welcome screen -->
     <string name="Welcome.title">Welcome to Electra!</string>
     <!-- Wipe wallet alert message -->

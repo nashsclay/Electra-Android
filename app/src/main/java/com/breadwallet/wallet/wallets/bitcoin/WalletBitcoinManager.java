@@ -51,9 +51,9 @@ public final class WalletBitcoinManager extends BaseBitcoinWalletManager {
     private static final String TAG = WalletBitcoinManager.class.getName();
 
     private static final String CURRENCY_CODE = BITCOIN_CURRENCY_CODE;
-    public static final String NAME = "Bitcoin";
-    private static final String SCHEME = "bitcoin";
-    private static final String COLOR = "#f29500";
+    public static final String NAME = "Electra";
+    private static final String SCHEME = "electra";
+    private static final String COLOR = "#1c1242";
 
     private static WalletBitcoinManager mInstance;
 

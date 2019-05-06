@@ -74,7 +74,7 @@ public class KVStoreManager {
     private static final String CREATION_DATE = "creationDate";
     private static final String ENABLED_AT_BLOCK_HEIGHT = "enabledAtBlockHeight";
     private static final String NAME = "name";
-    private static final String MY_BREAD = "My Bread";
+    private static final String MY_BREAD = "My Electra";
     private static final String ENABLED_CURRENCIES = "enabledCurrencies";
     private static final String HIDDEN_CURRENCIES = "hiddenCurrencies";
     private static final String BLOCK_HEIGHT = "bh";

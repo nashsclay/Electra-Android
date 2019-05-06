@@ -47,7 +47,7 @@
                 android:layout_below="@id/tx_action"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:text="-0.10965 BTC"
+                android:text="-0.10965 ECA"
                 android:textColor="@color/total_assets_usd_color"
                 android:textSize="26sp" />
 

@@ -26,8 +26,6 @@ import java.util.Locale;
 
 public class AboutActivity extends BaseSettingsActivity {
     private static final int VERSION_CLICK_COUNT_FOR_BACKDOOR = 5;
-    private BaseTextView mCopy;
-    private BaseTextView mRewardsId;
     private int mVersionClickedCount;
 
     @Override
@@ -59,16 +57,23 @@ public class AboutActivity extends BaseSettingsActivity {
             }
         });
 
-        ImageView redditShare = findViewById(R.id.reddit_share_button);
+        ImageView telegramShare = findViewById(R.id.telegram_share_button);
         ImageView twitterShare = findViewById(R.id.twitter_share_button);
-        ImageView blogShare = findViewById(R.id.blog_share_button);
-        mRewardsId = findViewById(R.id.brd_rewards_id);
-        mCopy = findViewById(R.id.brd_copy);
+        ImageView discordShare = findViewById(R.id.discord_share_button);
+        ImageView websiteShare = findViewById(R.id.website_share_button);
 
-        redditShare.setOnClickListener(new View.OnClickListener() {
+        websiteShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRConstants.URL_REDDIT));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRConstants.URL_WEBSITE));
+                startActivity(browserIntent);
+                AboutActivity.this.overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
+            }
+        });
+        telegramShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRConstants.URL_TELEGRAM));
                 startActivity(browserIntent);
                 AboutActivity.this.overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
             }
@@ -81,10 +86,10 @@ public class AboutActivity extends BaseSettingsActivity {
                 AboutActivity.this.overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
             }
         });
-        blogShare.setOnClickListener(new View.OnClickListener() {
+        discordShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRConstants.URL_BLOG));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(BRConstants.URL_DISCORD));
                 startActivity(browserIntent);
                 AboutActivity.this.overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
             }
@@ -98,15 +103,6 @@ public class AboutActivity extends BaseSettingsActivity {
             }
         });
 
-        mRewardsId.setText(BRSharedPrefs.getWalletRewardId(this));
-
-        mCopy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BRClipboardManager.putClipboard(AboutActivity.this, mRewardsId.getText().toString());
-                Toast.makeText(AboutActivity.this, getString(R.string.Receive_copied), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

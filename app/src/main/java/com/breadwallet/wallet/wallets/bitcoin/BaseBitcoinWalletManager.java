@@ -84,7 +84,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
     private static final long MAXIMUM_AMOUNT = 21000000; // Maximum number of coins available
     private static final int SYNC_MAX_RETRY = 3;
 
-    public static final String BITCOIN_CURRENCY_CODE = "BTC";
+    public static final String BITCOIN_CURRENCY_CODE = "ECA";
     public static final String BITCASH_CURRENCY_CODE = "BCH";
 
     private WalletSettingsConfiguration mSettingsConfig;
@@ -124,7 +124,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
         Context app = BreadApp.getBreadContext();
         if (0 == mCreateWalletAllowedRetries) {
             // The app is dead - tell the user...
-            BRDialog.showSimpleDialog(app, "Wallet error!", "please contact support@breadwallet.com");
+            BRDialog.showSimpleDialog(app, "Wallet error!", "please contact support@electraproject.org");
             // ... for now just this.  App crashes after this
             return null;
         }

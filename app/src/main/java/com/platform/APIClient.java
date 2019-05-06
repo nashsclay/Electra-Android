@@ -128,7 +128,7 @@ public class APIClient {
     private static final String HEADER_WALLET_ID = "X-Wallet-Id";
     private static final String HEADER_IS_INTERNAL = "X-Is-Internal";
     private static final String HEADER_TESTFLIGHT = "X-Testflight";
-    private static final String HEADER_TESTNET = "X-Bitcoin-Testnet";
+    private static final String HEADER_TESTNET = "X-Electra-Testnet";
     private static final String HEADER_ACCEPT_LANGUAGE = "Accept-Language";
     private static final String HEADER_USER_AGENT = "User-agent";
 

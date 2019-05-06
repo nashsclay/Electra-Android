@@ -77,6 +77,7 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.WalletActivity.EXTRA_DATA";
     public static final int MAX_NUMBER_OF_CHILDREN = 2;
 
+    private RecyclerView mWalletRecycler;
     private WalletListAdapter mAdapter;
     private BaseTextView mFiatTotal;
     private BRNotificationBar mNotificationBar;
@@ -89,11 +90,11 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        mWalletRecycler = findViewById(R.id.rv_wallet_list);
         mFiatTotal = findViewById(R.id.total_assets_usd);
         mNotificationBar = findViewById(R.id.notification_bar);
         mMenuLayout = findViewById(R.id.menu_layout);
         mListGroupLayout = findViewById(R.id.list_group_layout);
-
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,10 +104,46 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
             }
         });
+        mWalletRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mWalletRecycler.addOnItemTouchListener(new RecyclerItemClickListener(this, mWalletRecycler, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, float x, float y) {
+                if (position >= mAdapter.getItemCount() || position < 0) {
+                    return;
+                }
+                if (mAdapter.getItemViewType(position) == 0) {
+                    BRSharedPrefs.putCurrentWalletCurrencyCode(HomeActivity.this,
+                            mAdapter.getItemAt(position).getCurrencyCode());
+                    Intent newIntent;
+                    // Use BrdWalletActivity to show rewards view and animation if BRD and not shown yet.
+                    if (mAdapter.getItemAt(position).getCurrencyCode()
+                            .equalsIgnoreCase(WalletTokenManager.BRD_CURRENCY_CODE)) {
+                        if (!BRSharedPrefs.getRewardsAnimationShown(HomeActivity.this)) {
+                            Map<String, String> attributes = new HashMap<>();
+                            attributes.put(EventUtils.EVENT_ATTRIBUTE_CURRENCY, WalletTokenManager.BRD_CURRENCY_CODE);
+                            EventUtils.pushEvent(EventUtils.EVENT_REWARDS_OPEN_WALLET, attributes);
+                        }
+                        newIntent = new Intent(HomeActivity.this, BrdWalletActivity.class);
+                    } else {
+                        newIntent = new Intent(HomeActivity.this, WalletActivity.class);
+                    }
+                    startActivity(newIntent);
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                } else {
+                    Intent intent = new Intent(HomeActivity.this, AddWalletsActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                }
+            }
 
+            @Override
+            public void onLongItemClick(View view, int position) {
+            }
+        }));
         processIntentData(getIntent());
 
         mAdapter = new WalletListAdapter(this);
+        mWalletRecycler.setAdapter(mAdapter);
 
         // Get ViewModel, observe updates to Wallet and aggregated balance data
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);

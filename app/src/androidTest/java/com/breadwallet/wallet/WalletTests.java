@@ -103,68 +103,68 @@ public class WalletTests {
         CryptoRequest obj = CryptoUriParser.parseRequest(app, "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals("n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi", obj.getAddress());
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=1");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=1");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         BigDecimal bigDecimal = obj.getAmount();
         long amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "100000000");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=0.00000001");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=0.00000001");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         bigDecimal = obj.getAmount();
         amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "1");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=21000000");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=21000000");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         bigDecimal = obj.getAmount();
         amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "2100000000000000");
 
         // test for floating point rounding issues, these values cannot be exactly represented with an IEEE 754 double
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=20999999.99999999");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=20999999.99999999");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         bigDecimal = obj.getAmount();
         amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "2099999999999999");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=20999999.99999995");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=20999999.99999995");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         bigDecimal = obj.getAmount();
         amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "2099999999999995");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=0.07433");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=0.07433");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         bigDecimal = obj.getAmount();
         amountAsLong = bigDecimal.longValue();
         assertEquals(String.valueOf(amountAsLong), "7433000");
 
         // invalid amount string
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=foobar");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?amount=foobar");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals(obj.getAmount(), null);
 
         // test correct encoding of '&' in argument value
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?label=foo%26bar");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?label=foo%26bar");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals(obj.getLabel(), "foo");
 
         // test handling of ' ' in label or message
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?label=foo bar&message=bar foo");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?label=foo bar&message=bar foo");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals(obj.getLabel(), "foo bar");
         assertEquals(obj.getMessage(), "bar foo");
 
         // test bip73
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?r=https://foobar.com");
+        obj = CryptoUriParser.parseRequest(app, "electra:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi?r=https://foobar.com");
         assertEquals(obj.getAddress(), "n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals(obj.getRUrl(), "https://foobar.com");
 
-        obj = CryptoUriParser.parseRequest(app, "bitcoin:?r=https://foobar.com");
+        obj = CryptoUriParser.parseRequest(app, "electra:?r=https://foobar.com");
         assertEquals(obj.getAddress(), "");
         assertEquals(obj.getRUrl(), "https://foobar.com");
 

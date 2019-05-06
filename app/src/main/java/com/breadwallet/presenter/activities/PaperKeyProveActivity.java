@@ -158,7 +158,7 @@ public class PaperKeyProveActivity extends BRActivity {
                             brDialogView.dismissWithAnimation();
                         }
                     }, null, null, 0);
-            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at breadwallet.com"), false);
+            BRReportsManager.reportBug(new IllegalArgumentException("Paper Key error, please contact support at support@electraproject.org"), false);
         } else {
             randomWordsSetUp(wordArray);
         }

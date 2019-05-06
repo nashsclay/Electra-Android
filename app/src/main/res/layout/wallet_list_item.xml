@@ -17,7 +17,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_launcher"
+            android:background="@drawable/empty_screen"
             android:orientation="vertical">
 
             <com.breadwallet.presenter.customviews.BaseTextView

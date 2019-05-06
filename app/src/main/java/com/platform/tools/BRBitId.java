@@ -65,7 +65,7 @@ import okhttp3.RequestBody;
  */
 public class BRBitId {
     public static final String TAG = BRBitId.class.getName();
-    private static final String BITCOIN_SIGNED_MESSAGE_HEADER = "Bitcoin Signed Message:\n";
+    private static final String BITCOIN_SIGNED_MESSAGE_HEADER = "Electra very Signed Message:\n";
     private static final String BIT_ID = "bitid";
     private static final String BIT_ID_URL = "bitid_url";
     private static final String BIT_ID_INDEX = "bitid_index";

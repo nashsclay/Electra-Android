@@ -134,9 +134,10 @@ public final class BRConstants {
      */
 
     public static final String URL_PRIVACY_POLICY = "https://electraproject.org/privacy-policy/";
+    public static final String URL_WEBSITE = "https://electraproject.org";
     public static final String URL_TWITTER = "https://twitter.com/ElectracoinECA";
-    public static final String URL_REDDIT = "https://t.me/Electracoin";
-    public static final String URL_BLOG = "https://discordapp.com/invite/B8F7Jdv";
+    public static final String URL_TELEGRAM = "https://t.me/Electracoin";
+    public static final String URL_DISCORD = "https://discordapp.com/invite/B8F7Jdv";
     public static final String URL_BRD_HOST = "electraproject.org";
     public static final String WALLET_PAIR_PATH = "wallet-pair";
     public static final String WALLET_LINK_PATH = "link-wallet";
