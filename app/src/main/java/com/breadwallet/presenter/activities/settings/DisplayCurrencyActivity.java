@@ -68,7 +68,7 @@ public class DisplayCurrencyActivity extends BaseSettingsActivity {
         mExchangeText = findViewById(R.id.exchange_text);
         mListView = findViewById(R.id.currency_list_view);
         mAdapter = new CurrencyListAdapter(this);
-        List<CurrencyEntity> currencies = RatesDataSource.getInstance(this).getAllCurrencies(this, "BTC");
+        List<CurrencyEntity> currencies = RatesDataSource.getInstance(this).getAllCurrencies(this, "ECA");
         List<CurrencyEntity> cleanList = cleanList(currencies);
         mAdapter.addAll(cleanList);
         mLeftButton = findViewById(R.id.left_button);
