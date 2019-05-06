@@ -234,12 +234,12 @@ public class BRButton extends Button {
             setTextColor(getContext().getColor(R.color.button_primary_normal));
             bPaint.setColor(getContext().getColor(R.color.button_secondary));
             bPaint.setStyle(Paint.Style.FILL);
-        } else if (type == 4) {
-            bPaintStroke.setColor(getContext().getColor(R.color.currency_buttons_color));
+        } else if (type == 4) { //dark blue electra
+            bPaintStroke.setColor(getContext().getColor(R.color.primary_background));
             bPaintStroke.setStyle(Paint.Style.STROKE);
             bPaintStroke.setStrokeWidth(Utils.getPixelsFromDps(getContext(), 1));
             setTextColor(getContext().getColor(R.color.white));
-            bPaint.setColor(getContext().getColor(R.color.currency_buttons_color));
+            bPaint.setColor(getContext().getColor(R.color.primary_background));
             bPaint.setStyle(Paint.Style.FILL);
         } else if (type == 5) {
             bPaintStroke.setColor(getContext().getColor(R.color.blue));

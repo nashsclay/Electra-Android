@@ -112,8 +112,8 @@
     <color name="tertiary_background">#2E2540</color>
     <color name="prompt_background">#1E1C41</color>
     <color name="prompt_input">#f8f7fc</color>
-    <color name="button_gradient_start_color">#be00ff</color>
-    <color name="button_gradient_end_color">#1c1242</color>
+    <color name="button_gradient_start_color">#ffffff</color>
+    <color name="button_gradient_end_color">#ffffff</color>
     <color name="button_add_wallet_background">#444b77f3</color>
     <color name="button_cancel_add_wallet_background">#44E7AA41</color>
     <color name="button_add_wallet_text">#4b77f3</color>

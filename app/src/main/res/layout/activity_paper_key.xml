@@ -103,7 +103,7 @@
             android:paddingBottom="8dp"
             android:text="@string/WritePaperPhrase.previous"
             android:textSize="@dimen/button_text_size"
-            app:buttonType="7"
+            app:buttonType="4"
             app:isBreadButton="true" />
 
         <com.breadwallet.presenter.customviews.BRButton
@@ -120,7 +120,7 @@
             android:paddingBottom="8dp"
             android:text="@string/RecoverWallet.next"
             android:textSize="@dimen/button_text_size"
-            app:buttonType="6"
+            app:buttonType="4"
             app:isBreadButton="true" />
 
     </LinearLayout>

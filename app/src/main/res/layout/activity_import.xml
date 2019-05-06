@@ -15,7 +15,7 @@
         android:padding="10dp"
         android:text="@string/Import.scan"
         android:textSize="@dimen/button_text_size"
-        app:buttonType="1"
+        app:buttonType="4"
         app:customBFont="CircularPro-Medium.otf"
         app:isBreadButton="true"
         app:layout_constraintBottom_toBottomOf="parent"

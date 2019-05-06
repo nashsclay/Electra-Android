@@ -92,7 +92,7 @@
         android:padding="10dp"
         android:text="@string/NodeSelector.manualButton"
         android:textSize="@dimen/button_text_size"
-        app:buttonType="1"
+        app:buttonType="4"
         app:isBreadButton="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

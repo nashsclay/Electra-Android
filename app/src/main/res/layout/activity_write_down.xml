@@ -76,7 +76,7 @@
         android:text="@string/StartPaperPhrase.buttonTitle"
         android:textColor="@color/white"
         android:textSize="@dimen/button_text_size"
-        app:buttonType="1"
+        app:buttonType="4"
         app:isBreadButton="true" />
 
 </RelativeLayout>
