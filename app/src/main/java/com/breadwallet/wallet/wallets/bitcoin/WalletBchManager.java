@@ -96,7 +96,6 @@ public final class WalletBchManager extends BaseBitcoinWalletManager {
         });
         WalletsMaster.getInstance(context).setSpendingLimitIfNotSet(context, this);
 
-        setSettingsConfig(new WalletSettingsConfiguration(context, getCurrencyCode(), SettingsUtil.getBitcoinCashSettings(context), getFingerprintLimits(context)));
 //          BRPeerManager.getInstance().updateFixedPeer(ctx);//todo reimplement the fixed peer
     }
 
@@ -158,12 +157,12 @@ public final class WalletBchManager extends BaseBitcoinWalletManager {
 
     }
 
-    protected void syncStopped(Context context) {
-        BRSharedPrefs.putBchPreForkSynced(context, true);
-    }
-
     @Override
     public List<BRSettingsItem> getSettingsList(Context context) {
-        return SettingsUtil.getBitcoinCashSettings(context);
+        return null;
+    }
+
+    protected void syncStopped(Context context) {
+        BRSharedPrefs.putBchPreForkSynced(context, true);
     }
 }

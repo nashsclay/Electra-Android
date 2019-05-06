@@ -96,15 +96,6 @@ public final class SettingsUtil {
             }
         }, false, R.drawable.ic_camera));
 
-        settingsItems.add(new BRSettingsItem(activity.getString(R.string.MenuButton_manageWallets), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, ManageWalletsActivity.class);
-                activity.startActivity(intent);
-                activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-            }
-        }, false, R.drawable.ic_wallet));
-
         settingsItems.add(new BRSettingsItem(activity.getString(R.string.Settings_preferences), "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,34 +115,6 @@ public final class SettingsUtil {
                 activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, R.drawable.ic_security_settings));
-
-        settingsItems.add(new BRSettingsItem(activity.getString(R.string.MenuButton_support), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UiUtils.showSupportFragment((FragmentActivity) activity, null, walletManager);
-            }
-        }, false, R.drawable.ic_support));
-
-        settingsItems.add(new BRSettingsItem(activity.getString(R.string.Settings_review), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    Intent appStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_URI));
-                    appStoreIntent.setPackage(APP_STORE_PACKAGE);
-
-                    activity.startActivity(appStoreIntent);
-                } catch (android.content.ActivityNotFoundException exception) {
-                    activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(GOOGLE_PLAY_URI)));
-                }
-                activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-            }
-        }, false, R.drawable.ic_review));
-        settingsItems.add(new BRSettingsItem(activity.getString(R.string.Settings_rewards), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UiUtils.openRewardsWebView(activity);
-            }
-        }, false, R.drawable.ic_reward));
         settingsItems.add(new BRSettingsItem(activity.getString(R.string.About_title), "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,17 +123,6 @@ public final class SettingsUtil {
                 activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, R.drawable.ic_about));
-        if (BuildConfig.DEBUG) {
-            settingsItems.add(new BRSettingsItem(DEVELOPER_OPTIONS_TITLE, "", new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(activity, SettingsActivity.class);
-                    intent.putExtra(SettingsActivity.EXTRA_MODE, SettingsActivity.DEVELOPER_OPTIONS);
-                    activity.startActivity(intent);
-                    activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-                }
-            }, false, 0));
-        }
         return settingsItems;
     }
 
@@ -204,14 +156,6 @@ public final class SettingsUtil {
             public void onClick(View view) {
                 BRSharedPrefs.putCurrentWalletCurrencyCode(activity, walletBchManager.getCurrencyCode());
                 startCurrencySettings(activity);
-            }
-        }, false, 0));
-        items.add(new BRSettingsItem(activity.getString(R.string.Prompts_ShareData_title), currentFiatCode, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, ShareDataActivity.class);
-                activity.startActivity(intent);
-                activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, 0));
         return items;
@@ -408,33 +352,6 @@ public final class SettingsUtil {
                 }
             }, false, 0));
         }
-
-        return items;
-    }
-
-    public static List<BRSettingsItem> getBitcoinCashSettings(final Context context) {
-        List<BRSettingsItem> items = new ArrayList<>();
-        items.add(new BRSettingsItem(context.getString(R.string.Settings_importTitle), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                Activity currentActivity = (Activity) v.getContext();
-                Intent intent = new Intent(currentActivity, ImportActivity.class);
-                currentActivity.startActivity(intent);
-                currentActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-            }
-        }, false, 0));
-
-        items.add(new BRSettingsItem(context.getString(R.string.ReScan_header), "", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                Activity currentActivity = (Activity) v.getContext();
-                Intent intent = new Intent(currentActivity, SyncBlockchainActivity.class);
-                currentActivity.startActivity(intent);
-                currentActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-            }
-        }, false, 0));
 
         return items;
     }
