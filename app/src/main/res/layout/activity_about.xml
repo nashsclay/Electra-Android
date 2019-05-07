@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/backward3"
-        app:layout_constraintStart_toStartOf="@id/brd_website"
+        app:layout_constraintStart_toStartOf="@id/website_share_button"
         app:layout_constraintTop_toTopOf="@id/title" />
 
 
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginLeft="70dp"
         android:text="@string/About.walletID"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/divider4"
@@ -123,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginLeft="70dp"
         android:text="@string/About.twitter"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/view4"
@@ -132,7 +134,7 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginBottom="24dp"
         android:text="@string/About.blog"
         android:textSize="18sp"
@@ -145,8 +147,8 @@
         android:layout_height="38dp"
         android:src="@drawable/twitter"
         app:layout_constraintBottom_toBottomOf="@+id/textView22"
-        app:layout_constraintRight_toRightOf="@+id/view4"
-        app:layout_constraintTop_toTopOf="@+id/textView22" />
+        app:layout_constraintTop_toTopOf="@+id/textView22"
+        tools:layout_editor_absoluteX="17dp" />
 
     <ImageView
         android:id="@+id/discord_share_button"
@@ -154,8 +156,9 @@
         android:layout_height="38dp"
         android:src="@drawable/discord"
         app:layout_constraintBottom_toBottomOf="@+id/textView24"
-        app:layout_constraintRight_toRightOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/textView24" />
+        app:layout_constraintTop_toTopOf="@+id/textView24"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="17dp" />
 
     <ImageView
         android:id="@+id/website_share_button"
@@ -163,8 +166,9 @@
         android:layout_height="38dp"
         android:src="@drawable/website"
         app:layout_constraintBottom_toBottomOf="@+id/brd_website"
-        app:layout_constraintRight_toRightOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/brd_website" />
+        app:layout_constraintTop_toTopOf="@+id/brd_website"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="17dp" />
 
     <com.breadwallet.presenter.customviews.BaseTextView
         android:id="@+id/policy_text"
@@ -202,6 +206,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:layout_marginLeft="70dp"
         android:text="@string/About.reddit"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/divider1"
@@ -213,7 +218,7 @@
         android:layout_height="38dp"
         android:src="@drawable/telegram"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
-        app:layout_constraintRight_toRightOf="@+id/divider1"
-        app:layout_constraintTop_toTopOf="@+id/textView21" />
+        app:layout_constraintTop_toTopOf="@+id/textView21"
+        tools:layout_editor_absoluteX="17dp" />
 
 </android.support.constraint.ConstraintLayout>
