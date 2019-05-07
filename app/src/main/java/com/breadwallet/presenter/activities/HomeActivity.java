@@ -29,6 +29,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,8 +43,11 @@ import com.breadwallet.R;
 import com.breadwallet.model.Wallet;
 import com.breadwallet.presenter.activities.settings.SettingsActivity;
 import com.breadwallet.presenter.activities.util.BRActivity;
+import com.breadwallet.presenter.customviews.BRButton;
 import com.breadwallet.presenter.customviews.BRNotificationBar;
 import com.breadwallet.presenter.customviews.BaseTextView;
+import com.breadwallet.presenter.entities.CryptoRequest;
+import com.breadwallet.presenter.fragments.FragmentSend;
 import com.breadwallet.presenter.viewmodels.MainViewModel;
 import com.breadwallet.tools.adapter.WalletListAdapter;
 import com.breadwallet.tools.animation.UiUtils;
@@ -84,6 +88,11 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     private LinearLayout mMenuLayout;
     private LinearLayout mListGroupLayout;
     private MainViewModel mViewModel;
+    private LinearLayout mWalletFooter;
+    private BRButton mSendButton;
+    private BRButton mReceiveButton;
+    public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
+    private static final int SEND_SHOW_DELAY = 300;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -165,6 +174,24 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                         BRSharedPrefs.getPreferredFiatIso(HomeActivity.this), aggregatedFiatBalance));
             }
         });
+        mWalletFooter = findViewById(R.id.bottom_toolbar_layout1);
+        mSendButton = findViewById(R.id.send_button);
+        mSendButton.setHasShadow(false);
+        mSendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSendFragment(null);
+            }
+        });
+
+        mSendButton.setHasShadow(false);
+        mReceiveButton = findViewById(R.id.receive_button);
+        mReceiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UiUtils.showReceiveFragment(HomeActivity.this, true);
+            }
+        });
     }
 
     @Override
@@ -230,5 +257,34 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
     public void closeNotificationBar() {
         mNotificationBar.setVisibility(View.INVISIBLE);
+    }
+
+    public void showSendFragment(final CryptoRequest request) {
+        // TODO: Find a better solution.
+        if (FragmentSend.isIsSendShown()) {
+            return;
+        }
+        FragmentSend.setIsSendShown(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                FragmentSend fragmentSend = (FragmentSend) getSupportFragmentManager()
+                        .findFragmentByTag(FragmentSend.class.getName());
+                if (fragmentSend == null) {
+                    fragmentSend = new FragmentSend();
+                }
+
+                Bundle arguments = new Bundle();
+                arguments.putSerializable(EXTRA_CRYPTO_REQUEST, request);
+                fragmentSend.setArguments(arguments);
+                if (!fragmentSend.isAdded()) {
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(0, 0, 0, R.animator.plain_300)
+                            .add(android.R.id.content, fragmentSend, FragmentSend.class.getName())
+                            .addToBackStack(FragmentSend.class.getName()).commit();
+                }
+            }
+        }, SEND_SHOW_DELAY);
+
     }
 }
