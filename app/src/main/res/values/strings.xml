@@ -5,7 +5,7 @@
     <!-- About screen blog label -->
     <string name="About.blog">Discord</string>
     <!-- About screen footer -->
-    <string name="About.footer">Made by Electra team. Version %1$s Build %2$s</string>
+    <string name="About.footer">Made by Electra Team. Version %1$s Build %2$s</string>
     <!-- Privay Policy button label -->
     <string name="About.privacy">Privacy Policy</string>
     <!-- About screen reddit label -->
@@ -247,7 +247,7 @@
     <!-- This section lists the users wallets -->
     <string name="HomeScreen.portfolio">Wallets</string>
     <!-- Label for the total balance of all the user's assets (style is all lower case if your language permits) -->
-    <string name="HomeScreen.totalAssets">Total Assets</string>
+    <string name="HomeScreen.totalAssets">Total</string>
     <!-- (Tap here to) trade (your assets for other assets) -->
     <string name="HomeScreen.trade">Trade</string>
     <!-- Checking private key balance progress view text -->
