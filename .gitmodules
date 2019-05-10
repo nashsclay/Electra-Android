@@ -1,8 +1,6 @@
-[submodule "secp"]
-	path = app/src/main/secp/secp256k1
-	url = https://github.com/bitcoin-core/secp256k1.git
-	ignore = dirty
-[submodule "core"]
+[submodule "app/src/main/jni/breadwallet-core"]
 	path = app/src/main/jni/breadwallet-core
-	url = https://github.com/Jenova7/breadwallet-core
-	ignore = dirty
+	url = git://github.com/Jenova7/breadwallet-core.git
+[submodule "app/src/main/secp/secp256k1"]
+	path = app/src/main/secp/secp256k1
+	url = git://github.com/bitcoin-core/secp256k1.git
