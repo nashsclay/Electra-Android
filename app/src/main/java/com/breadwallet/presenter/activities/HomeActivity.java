@@ -25,18 +25,15 @@
 
 package com.breadwallet.presenter.activities;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.breadwallet.R;
@@ -51,24 +48,20 @@ import com.breadwallet.presenter.fragments.FragmentSend;
 import com.breadwallet.presenter.viewmodels.MainViewModel;
 import com.breadwallet.tools.adapter.WalletListAdapter;
 import com.breadwallet.tools.animation.UiUtils;
-import com.breadwallet.tools.listeners.RecyclerItemClickListener;
 import com.breadwallet.tools.manager.AppEntryPointHandler;
 import com.breadwallet.tools.manager.BRSharedPrefs;
 import com.breadwallet.tools.manager.InternetManager;
 import com.breadwallet.tools.manager.PromptManager;
-import com.breadwallet.tools.util.BRConstants;
 import com.breadwallet.tools.util.CurrencyUtils;
 import com.breadwallet.tools.util.EventUtils;
 import com.breadwallet.tools.util.Utils;
-import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
-import com.breadwallet.wallet.wallets.ethereum.WalletTokenManager;
-import com.platform.APIClient;
-import com.platform.HTTPServer;
+import com.breadwallet.wallet.WalletsMaster;
+import com.breadwallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by byfieldj on 1/17/18.
@@ -91,6 +84,8 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     private BRButton mReceiveButton;
     public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
     private static final int SEND_SHOW_DELAY = 300;
+    private BaseTextView mCurrencyPriceUsd;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -121,6 +116,15 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
             @Override
             public void onChanged(@Nullable List<Wallet> wallets) {
                 mAdapter.setWallets(wallets);
+                for (Wallet wallet : wallets) {
+                    mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
+                    BigDecimal rate = wallet.getExchangeRate();
+                    rate = rate.setScale(6, RoundingMode.CEILING);
+                    //mCurrencyPriceUsd.setText(wallet.getExchangeRate().toPlainString());
+
+                    mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
+                            rate, wallet.getCurrencyCode()));
+                }
             }
         });
 
@@ -153,6 +157,43 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 UiUtils.showReceiveFragment(HomeActivity.this, true);
             }
         });
+
+
+//        WalletsMaster.getInstance(this).updateWallets(this);
+//        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
+//        Log.i("JOHAN2",walletManager.getFiatExchangeRate(this).toPlainString());
+//        mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
+//        mCurrencyPriceUsd.setText(walletManager.getFiatExchangeRate(this).toPlainString());
+
+
+        //updateUi();
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //updateUi();
+    }
+    private void updateUi() {
+
+        //MutableLiveData<List<Wallet>> mWallets = new MutableLiveData<>();
+
+        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
+        walletManager.getFiatExchangeRate(this);
+//        if (walletManager == null) {
+//            Log.e(TAG, "updateUi: wallet is null");
+//            return;
+//        }
+//
+//        BigDecimal bigExchangeRate = walletManager.getFiatExchangeRate(this);
+//        Log.i("JOHAN2",bigExchangeRate.toPlainString());
+//        String fiatExchangeRate = CurrencyUtils.getFormattedAmount(this,
+//                BRSharedPrefs.getPreferredFiatIso(this), bigExchangeRate);
+//        Log.i("JOHAN2",fiatExchangeRate);
+//        mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
+//                fiatExchangeRate, walletManager.getCurrencyCode()));
+
+
     }
 
     @Override

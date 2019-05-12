@@ -65,10 +65,15 @@ import com.platform.APIClient;
 import com.platform.entities.TxMetaData;
 import com.platform.tools.KVStoreManager;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -436,12 +441,61 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
 
     @Override
     public BigDecimal getFiatExchangeRate(Context app) {
-        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
-        CurrencyEntity currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
-        if (btcFiatRate == null || currencyBtcRate == null) {
+//        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
+//        CurrencyEntity currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
+//        if (btcFiatRate == null || currencyBtcRate == null) {
+//            return BigDecimal.ZERO;
+//        }
+//        return new BigDecimal(btcFiatRate.rate).multiply(new BigDecimal(currencyBtcRate.rate));
+
+        CurrencyEntity btcFiatRate = null;
+        CurrencyEntity currencyBtcRate = null;
+        try{
+            HttpURLConnection urlConnection = null;
+            URL url = new URL("https://api.coingecko.com/api/v3/coins/electra/tickers");
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setReadTimeout(10000 /* milliseconds */ );
+            urlConnection.setConnectTimeout(15000 /* milliseconds */ );
+            urlConnection.setDoOutput(true);
+            urlConnection.connect();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuilder sb = new StringBuilder();
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            br.close();
+            int spacesToIndentEachLevel = 2;
+            String jsonString = sb.toString();
+            JSONObject mainObject = new JSONObject(jsonString);
+
+            JSONArray tickers = mainObject.getJSONArray("tickers");
+
+            for(int n = 0; n < tickers.length(); n++)
+            {
+                JSONObject object = tickers.getJSONObject(n);
+                String target = object.getString("target");
+                if(target.compareToIgnoreCase("USDT") == 0){
+                    btcFiatRate = new CurrencyEntity("USD","DOLLAR", Float.parseFloat(object.getString("last")),"ECA");
+                }
+            }
+
+
+
+        }catch (Exception e)
+        {
+            Log.e("ERROR",e.toString());
+        }
+//        btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
+//        currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
+        if (btcFiatRate == null && currencyBtcRate == null) {
             return BigDecimal.ZERO;
         }
-        return new BigDecimal(btcFiatRate.rate).multiply(new BigDecimal(currencyBtcRate.rate));
+        //Log.i("JOHAN",Float.toString(btcFiatRate.rate));
+        return new BigDecimal(btcFiatRate.rate);
     }
 
     @Override
