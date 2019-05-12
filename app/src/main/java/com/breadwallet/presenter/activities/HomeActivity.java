@@ -99,11 +99,9 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mWalletRecycler = findViewById(R.id.rv_wallet_list);
         mFiatTotal = findViewById(R.id.total_assets_usd);
         mNotificationBar = findViewById(R.id.notification_bar);
         mMenuLayout = findViewById(R.id.menu_layout);
-        mListGroupLayout = findViewById(R.id.list_group_layout);
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
