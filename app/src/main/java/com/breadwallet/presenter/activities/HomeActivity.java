@@ -81,14 +81,12 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.WalletActivity.EXTRA_DATA";
     public static final int MAX_NUMBER_OF_CHILDREN = 2;
 
-    private RecyclerView mWalletRecycler;
+
     private WalletListAdapter mAdapter;
     private BaseTextView mFiatTotal;
     private BRNotificationBar mNotificationBar;
     private LinearLayout mMenuLayout;
-    private LinearLayout mListGroupLayout;
     private MainViewModel mViewModel;
-    private LinearLayout mWalletFooter;
     private BRButton mSendButton;
     private BRButton mReceiveButton;
     public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
@@ -111,46 +109,11 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 overridePendingTransition(R.anim.enter_from_bottom, R.anim.empty_300);
             }
         });
-        mWalletRecycler.setLayoutManager(new LinearLayoutManager(this));
-        mWalletRecycler.addOnItemTouchListener(new RecyclerItemClickListener(this, mWalletRecycler, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position, float x, float y) {
-                if (position >= mAdapter.getItemCount() || position < 0) {
-                    return;
-                }
-                if (mAdapter.getItemViewType(position) == 0) {
-                    BRSharedPrefs.putCurrentWalletCurrencyCode(HomeActivity.this,
-                            mAdapter.getItemAt(position).getCurrencyCode());
-                    Intent newIntent;
-                    // Use BrdWalletActivity to show rewards view and animation if BRD and not shown yet.
-                    if (mAdapter.getItemAt(position).getCurrencyCode()
-                            .equalsIgnoreCase(WalletTokenManager.BRD_CURRENCY_CODE)) {
-                        if (!BRSharedPrefs.getRewardsAnimationShown(HomeActivity.this)) {
-                            Map<String, String> attributes = new HashMap<>();
-                            attributes.put(EventUtils.EVENT_ATTRIBUTE_CURRENCY, WalletTokenManager.BRD_CURRENCY_CODE);
-                            EventUtils.pushEvent(EventUtils.EVENT_REWARDS_OPEN_WALLET, attributes);
-                        }
-                        newIntent = new Intent(HomeActivity.this, BrdWalletActivity.class);
-                    } else {
-                        newIntent = new Intent(HomeActivity.this, WalletActivity.class);
-                    }
-                    startActivity(newIntent);
-                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-                } else {
-                    Intent intent = new Intent(HomeActivity.this, AddWalletsActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-                }
-            }
 
-            @Override
-            public void onLongItemClick(View view, int position) {
-            }
-        }));
+
         processIntentData(getIntent());
 
         mAdapter = new WalletListAdapter(this);
-        mWalletRecycler.setAdapter(mAdapter);
 
         // Get ViewModel, observe updates to Wallet and aggregated balance data
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
@@ -172,7 +135,7 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                         BRSharedPrefs.getPreferredFiatIso(HomeActivity.this), aggregatedFiatBalance));
             }
         });
-        mWalletFooter = findViewById(R.id.bottom_toolbar_layout1);
+
         mSendButton = findViewById(R.id.send_button);
         mSendButton.setHasShadow(false);
         mSendButton.setOnClickListener(new View.OnClickListener() {
@@ -212,10 +175,7 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         PromptManager.PromptItem toShow = PromptManager.nextPrompt(this);
         if (toShow != null) {
             View promptView = PromptManager.promptInfo(this, toShow);
-            if (mListGroupLayout.getChildCount() >= MAX_NUMBER_OF_CHILDREN) {
-                mListGroupLayout.removeViewAt(0);
-            }
-            mListGroupLayout.addView(promptView, 0);
+
             EventUtils.pushEvent(EventUtils.EVENT_PROMPT_PREFIX
                     + PromptManager.getPromptName(toShow) + EventUtils.EVENT_PROMPT_SUFFIX_DISPLAYED);
         } else {
