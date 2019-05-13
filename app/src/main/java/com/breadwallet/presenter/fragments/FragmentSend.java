@@ -171,23 +171,6 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
         });
         mKeyboardIndex = mSignalLayout.indexOfChild(mKeyboardLayout);
 
-        ImageButton faq = rootView.findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                Activity app = getActivity();
-                if (app == null) {
-                    Log.e(TAG, "onClick: app is null, can't start the webview with url: "
-                            + HTTPServer.getPlatformUrl(HTTPServer.URL_SUPPORT));
-                    return;
-                }
-                BaseWalletManager wm = WalletsMaster.getInstance(app).getCurrentWallet(app);
-                UiUtils.showSupportFragment((FragmentActivity) app, BRConstants.FAQ_SEND, wm);
-            }
-        });
-
         showKeyboard(false);
         setButton(true);
 

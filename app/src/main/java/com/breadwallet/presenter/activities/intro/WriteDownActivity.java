@@ -90,16 +90,6 @@ public class WriteDownActivity extends BRActivity {
             }
         });
 
-        ImageButton faq = findViewById(R.id.faq_button);
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(WriteDownActivity.this).getCurrentWallet(WriteDownActivity.this);
-                UiUtils.showSupportFragment(WriteDownActivity.this, BRConstants.FAQ_PAPER_KEY, wm);
-
-            }
-        });
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

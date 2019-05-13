@@ -495,7 +495,7 @@
                 android:layout_marginTop="26dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/TransactionDetails.showDetails"
-                android:textColor="@color/blue" />
+                android:textColor="@color/primary_background" />
 
         </RelativeLayout>
 

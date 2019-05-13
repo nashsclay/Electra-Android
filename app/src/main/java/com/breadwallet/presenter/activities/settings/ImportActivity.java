@@ -41,17 +41,6 @@ public class ImportActivity extends BRActivity {
             }
         });
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(ImportActivity.this).getCurrentWallet(ImportActivity.this);
-                UiUtils.showSupportFragment(ImportActivity.this, BRConstants.FAQ_IMPORT_WALLET, wm);
-            }
-        });
-
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

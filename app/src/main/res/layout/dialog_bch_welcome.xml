@@ -5,16 +5,6 @@
     android:layout_height="180dp">
 
 
-    <ImageButton
-        android:id="@+id/bch_dialog_help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/faq_question_black" />
-
-
     <com.breadwallet.presenter.customviews.BaseTextView
         android:id="@+id/bch_dialog_title"
         android:layout_width="wrap_content"

@@ -38,17 +38,6 @@ public class SpendLimitActivity extends BRActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spend_limit);
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(SpendLimitActivity.this).getCurrentWallet(SpendLimitActivity.this);
-                UiUtils.showSupportFragment(SpendLimitActivity.this, BRConstants.FAQ_FINGERPRINT_SPENDING_LIMIT, wm);
-            }
-        });
-
         listView = findViewById(R.id.limit_list);
         listView.setFooterDividersEnabled(true);
         adapter = new LimitAdaptor(this);
