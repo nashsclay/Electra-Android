@@ -35,7 +35,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
 
 import com.breadwallet.R;
 import com.breadwallet.model.Wallet;
@@ -43,6 +45,7 @@ import com.breadwallet.presenter.activities.settings.SettingsActivity;
 import com.breadwallet.presenter.activities.util.BRActivity;
 import com.breadwallet.presenter.customviews.BRButton;
 import com.breadwallet.presenter.customviews.BRNotificationBar;
+import com.breadwallet.presenter.customviews.BRSearchBar;
 import com.breadwallet.presenter.customviews.BaseTextView;
 import com.breadwallet.presenter.entities.CryptoRequest;
 import com.breadwallet.presenter.fragments.FragmentSend;
@@ -86,14 +89,14 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     private BaseTextView mCurrencyPriceUsd;
     private BaseTextView mBalancePrimary;
     private BaseTextView mBalanceSecondary;
-
-
+    private BRSearchBar mSearchBar;
+    public ViewFlipper mBarFlipper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        ImageButton searchIcon = findViewById(R.id.search_icon);
         mNotificationBar = findViewById(R.id.notification_bar);
         mMenuLayout = findViewById(R.id.menu_layout);
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
@@ -161,14 +164,18 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 UiUtils.showReceiveFragment(HomeActivity.this, true);
             }
         });
-
-
-//        WalletsMaster.getInstance(this).updateWallets(this);
-//        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
-//        Log.i("JOHAN2",walletManager.getFiatExchangeRate(this).toPlainString());
-//        mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
-//        mCurrencyPriceUsd.setText(walletManager.getFiatExchangeRate(this).toPlainString());
-
+        mSearchBar = findViewById(R.id.search_bar);
+        mBarFlipper = findViewById(R.id.tool_bar_flipper);
+        searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!UiUtils.isClickAllowed()) {
+                    return;
+                }
+                mBarFlipper.setDisplayedChild(1); //search bar
+                mSearchBar.onShow(true);
+            }
+        });
 
         //updateUi();
 
@@ -178,26 +185,8 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         super.onStart();
         //updateUi();
     }
-    private void updateUi() {
-
-        //MutableLiveData<List<Wallet>> mWallets = new MutableLiveData<>();
-
-        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
-        walletManager.getFiatExchangeRate(this);
-//        if (walletManager == null) {
-//            Log.e(TAG, "updateUi: wallet is null");
-//            return;
-//        }
-//
-//        BigDecimal bigExchangeRate = walletManager.getFiatExchangeRate(this);
-//        Log.i("JOHAN2",bigExchangeRate.toPlainString());
-//        String fiatExchangeRate = CurrencyUtils.getFormattedAmount(this,
-//                BRSharedPrefs.getPreferredFiatIso(this), bigExchangeRate);
-//        Log.i("JOHAN2",fiatExchangeRate);
-//        mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
-//                fiatExchangeRate, walletManager.getCurrencyCode()));
-
-
+    public void resetFlipper() {
+        mBarFlipper.setDisplayedChild(0);
     }
 
     @Override
