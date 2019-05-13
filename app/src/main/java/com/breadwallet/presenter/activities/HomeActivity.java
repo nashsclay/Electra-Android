@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -83,6 +84,9 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
     private static final int SEND_SHOW_DELAY = 300;
     private BaseTextView mCurrencyPriceUsd;
+    private BaseTextView mBalancePrimary;
+    private BaseTextView mBalanceSecondary;
+
 
 
     @Override
@@ -121,6 +125,21 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
                     mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
                             rate, wallet.getCurrencyCode()));
+
+                    mBalancePrimary = findViewById(R.id.balance_primary);
+
+                    String fiatBalance = wallet.getFiatBalance().toPlainString();
+                    mBalancePrimary.setText(fiatBalance);
+
+                    mBalanceSecondary = findViewById(R.id.balance_secondary);
+
+                    String cryptoBalance = wallet.getCryptoBalance().toPlainString();
+
+//                    String cryptoBalance = CurrencyUtils.getFormattedAmount(this,
+//                            wallet.getCurrencyCode(), wallet.getCachedBalance(),
+//                            wallet.getUiConfiguration().getMaxDecimalPlacesForUi());
+                    mBalanceSecondary.setText(cryptoBalance);
+
                 }
             }
         });
