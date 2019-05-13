@@ -54,16 +54,6 @@ public class DisplayCurrencyActivity extends BaseSettingsActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(DisplayCurrencyActivity.this).getCurrentWallet(DisplayCurrencyActivity.this);
-                UiUtils.showSupportFragment(DisplayCurrencyActivity.this, BRConstants.FAQ_DISPLAY_CURRENCY, wm);
-            }
-        });
 
         mExchangeText = findViewById(R.id.exchange_text);
         mListView = findViewById(R.id.currency_list_view);

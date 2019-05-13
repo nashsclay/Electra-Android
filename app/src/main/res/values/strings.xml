@@ -27,7 +27,7 @@
     <!-- Delisted token alert banner message -->
     <string name="Account.delistedToken">This token has been delisted because the issuer decided to cease ERC20 support. \n\nYou may still be able to send these tokens to another platform. For more details, visit our support page.</string>
     <!-- $10000 per BTC -->
-    <string name="Account.exchangeRate">%1$s per %2$s</string>
+    <string name="Account.exchangeRate">$ %1$s per %2$s</string>
     <!-- Loading Wallet Message -->
     <string name="Account.loadingMessage">Loading Wallet</string>
     <!-- Default wallet name -->
@@ -375,7 +375,7 @@
     <!-- Onboarding screen 'Buy some coin' button -->
     <string name="Onboarding.buyCoin">Buy some coin</string>
     <!-- Onboarding screen 'Get started' (create new wallet) button -->
-    <string name="Onboarding.getStarted">Get started</string>
+    <string name="Onboarding.getStarted">New wallet</string>
     <!-- Onboarding screen 'Next' button -->
     <string name="Onboarding.next">Next</string>
     <!-- Onboarding screen restore an existing wallet. -->

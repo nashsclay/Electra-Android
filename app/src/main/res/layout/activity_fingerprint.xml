@@ -29,26 +29,20 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/faq_button"
+                android:layout_gravity="top"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
                 android:text="@string/TouchIdSettings.title.android"
                 android:textSize="@dimen/header"
                 app:brdFont="@string/Font.CircularPro_Bold" />
-
-            <ImageButton
-                android:id="@+id/faq_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/bread_margin"
-                android:background="?attr/faq_button_secondary_color" />
 
         </RelativeLayout>
 
         <ImageView
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:elevation="8dp"
             android:src="@drawable/ic_fingerprint_large" />
 

@@ -64,7 +64,7 @@ public class OnBoardingActivity extends BRActivity {
     private static final String TAG = OnBoardingActivity.class.getSimpleName();
     private List<View> mIndicators = new ArrayList<>();
     private ImageButton mBackButton;
-    private Button mSkipButton;
+    //private Button mSkipButton;
 
     private static NextScreen mNextScreen;
 
@@ -82,64 +82,65 @@ public class OnBoardingActivity extends BRActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_on_boarding);
-        final ViewPager viewPager = findViewById(R.id.view_pager);
-        mIndicators.add(findViewById(R.id.indicator1));
-        mIndicators.add(findViewById(R.id.indicator2));
-        mIndicators.add(findViewById(R.id.indicator3));
-        mBackButton = findViewById(R.id.button_back);
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EventUtils.pushEvent(EventUtils.EVENT_BACK_BUTTON);
-                onBackPressed();
-            }
-        });
-        mSkipButton = findViewById(R.id.button_skip);
-        mSkipButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSkipButton.setEnabled(false);
-                EventUtils.pushEvent(EventUtils.EVENT_SKIP_BUTTON);
-                progressToBrowse(OnBoardingActivity.this);
-            }
-        });
+        //setContentView(R.layout.activity_on_boarding);
+//        final ViewPager viewPager = findViewById(R.id.view_pager);
+//        mIndicators.add(findViewById(R.id.indicator1));
+//        mIndicators.add(findViewById(R.id.indicator2));
+//        mIndicators.add(findViewById(R.id.indicator3));
+//        mBackButton = findViewById(R.id.button_back);
+//        mBackButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                EventUtils.pushEvent(EventUtils.EVENT_BACK_BUTTON);
+//                onBackPressed();
+//            }
+//        });
+//        mSkipButton = findViewById(R.id.button_skip);
+//        mSkipButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mSkipButton.setEnabled(false);
+//                EventUtils.pushEvent(EventUtils.EVENT_SKIP_BUTTON);
+//                progressToBrowse(OnBoardingActivity.this);
+//            }
+//        });
 
-        OnBoardingPagerAdapter onBoardingPagerAdapter = new OnBoardingPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(onBoardingPagerAdapter);
+//        OnBoardingPagerAdapter onBoardingPagerAdapter = new OnBoardingPagerAdapter(getSupportFragmentManager());
+//        viewPager.setAdapter(onBoardingPagerAdapter);
         // Attach the page change listener inside the activity
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            // This method will be invoked when a new page becomes selected.
-            @Override
-            public void onPageSelected(int position) {
-                if (position == 0) {
-                    showHideToolBarButtons(true);
-                } else {
-                    showHideToolBarButtons(false);
-                }
-                setActiveIndicator(position);
-                sendEvent(OnBoardingEvent.values()[position]);
-            }
-
-            // This method will be invoked when the current page is scrolled
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
+//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//
+//            // This method will be invoked when a new page becomes selected.
+//            @Override
+//            public void onPageSelected(int position) {
+//                if (position == 0) {
+//                    showHideToolBarButtons(true);
+//                } else {
+//                    showHideToolBarButtons(false);
+//                }
+//                setActiveIndicator(position);
+//                sendEvent(OnBoardingEvent.values()[position]);
+//            }
+//
+//            // This method will be invoked when the current page is scrolled
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//            }
+//
+//            // Called when the scroll state changes:
+//            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//            }
+//        });
+        progressToBrowse(OnBoardingActivity.this);
         sendEvent(OnBoardingEvent.GLOBE_PAGE_APPEARED);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mSkipButton.setEnabled(true);
+        //mSkipButton.setEnabled(true);
     }
 
     public static void showBuyScreen(Activity activity) {
@@ -150,7 +151,7 @@ public class OnBoardingActivity extends BRActivity {
     }
 
     private void showHideToolBarButtons(boolean show) {
-        mSkipButton.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
+        //mSkipButton.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
         mBackButton.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
     }
 
@@ -233,26 +234,26 @@ public class OnBoardingActivity extends BRActivity {
         mNextScreen = nextScreen;
     }
 
-    public static class OnBoardingPagerAdapter extends FragmentPagerAdapter {
-        private static final int COUNT = 3;
-
-        OnBoardingPagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
-
-        // Returns total number of pages
-        @Override
-        public int getCount() {
-            return COUNT;
-        }
-
-        // Returns the fragment to display for that page
-        @Override
-        public Fragment getItem(int position) {
-            return FragmentOnBoarding.newInstance(position);
-        }
-
-    }
+//    public static class OnBoardingPagerAdapter extends FragmentPagerAdapter {
+//        private static final int COUNT = 3;
+//
+//        OnBoardingPagerAdapter(FragmentManager fragmentManager) {
+//            super(fragmentManager);
+//        }
+//
+//        // Returns total number of pages
+//        @Override
+//        public int getCount() {
+//            return COUNT;
+//        }
+//
+//        // Returns the fragment to display for that page
+//        @Override
+//        public Fragment getItem(int position) {
+//            return FragmentOnBoarding.newInstance(position);
+//        }
+//
+//    }
 
 }
 

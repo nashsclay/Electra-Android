@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -72,11 +73,9 @@ import java.util.List;
 public class HomeActivity extends BRActivity implements InternetManager.ConnectionReceiverListener {
     private static final String TAG = HomeActivity.class.getSimpleName();
     public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.WalletActivity.EXTRA_DATA";
-    public static final int MAX_NUMBER_OF_CHILDREN = 2;
 
 
     private WalletListAdapter mAdapter;
-    private BaseTextView mFiatTotal;
     private BRNotificationBar mNotificationBar;
     private LinearLayout mMenuLayout;
     private MainViewModel mViewModel;
@@ -85,6 +84,9 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
     private static final int SEND_SHOW_DELAY = 300;
     private BaseTextView mCurrencyPriceUsd;
+    private BaseTextView mBalancePrimary;
+    private BaseTextView mBalanceSecondary;
+
 
 
     @Override
@@ -92,7 +94,6 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mFiatTotal = findViewById(R.id.total_assets_usd);
         mNotificationBar = findViewById(R.id.notification_bar);
         mMenuLayout = findViewById(R.id.menu_layout);
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
@@ -124,19 +125,22 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
                     mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
                             rate, wallet.getCurrencyCode()));
-                }
-            }
-        });
 
-        mViewModel.getAggregatedFiatBalance().observe(this, new Observer<BigDecimal>() {
-            @Override
-            public void onChanged(@Nullable BigDecimal aggregatedFiatBalance) {
-                if (aggregatedFiatBalance == null) {
-                    Log.e(TAG, "fiatTotalAmount is null");
-                    return;
+                    mBalancePrimary = findViewById(R.id.balance_primary);
+
+                    String fiatBalance = wallet.getFiatBalance().toPlainString();
+                    mBalancePrimary.setText(fiatBalance);
+
+                    mBalanceSecondary = findViewById(R.id.balance_secondary);
+
+                    String cryptoBalance = wallet.getCryptoBalance().toPlainString();
+
+//                    String cryptoBalance = CurrencyUtils.getFormattedAmount(this,
+//                            wallet.getCurrencyCode(), wallet.getCachedBalance(),
+//                            wallet.getUiConfiguration().getMaxDecimalPlacesForUi());
+                    mBalanceSecondary.setText(cryptoBalance);
+
                 }
-                mFiatTotal.setText(CurrencyUtils.getFormattedAmount(HomeActivity.this,
-                        BRSharedPrefs.getPreferredFiatIso(HomeActivity.this), aggregatedFiatBalance));
             }
         });
 

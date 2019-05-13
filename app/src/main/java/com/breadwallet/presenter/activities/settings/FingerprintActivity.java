@@ -58,17 +58,6 @@ public class FingerprintActivity extends BRActivity {
         limitExchange = findViewById(R.id.limit_exchange);
         limitInfo = findViewById(R.id.limit_info);
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(FingerprintActivity.this).getCurrentWallet(FingerprintActivity.this);
-                UiUtils.showSupportFragment(FingerprintActivity.this, BRConstants.FAQ_ENABLE_FINGERPRINT, wm);
-            }
-        });
-
         toggleButton.setChecked(BRSharedPrefs.getUseFingerprint(this));
 
         limitExchange.setText(getLimitText());

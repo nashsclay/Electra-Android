@@ -33,17 +33,6 @@ public class UnlinkActivity extends BRActivity {
         nextButton = findViewById(R.id.send_button);
         close = findViewById(R.id.close_button);
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(UnlinkActivity.this).getCurrentWallet(UnlinkActivity.this);
-                UiUtils.showSupportFragment(UnlinkActivity.this, BRConstants.FAQ_WIPE_WALLET, wm);
-            }
-        });
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
