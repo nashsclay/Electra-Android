@@ -375,7 +375,7 @@
     <!-- Onboarding screen 'Buy some coin' button -->
     <string name="Onboarding.buyCoin">Buy some coin</string>
     <!-- Onboarding screen 'Get started' (create new wallet) button -->
-    <string name="Onboarding.getStarted">Get started</string>
+    <string name="Onboarding.getStarted">New wallet</string>
     <!-- Onboarding screen 'Next' button -->
     <string name="Onboarding.next">Next</string>
     <!-- Onboarding screen restore an existing wallet. -->
