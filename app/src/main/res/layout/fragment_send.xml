@@ -342,7 +342,7 @@
             android:id="@+id/separator2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/extra_light_gray" />
+            android:background="@color/numpad_entry" />
 
         <LinearLayout
             android:id="@+id/keyboard_layout"
@@ -354,13 +354,13 @@
                 android:id="@+id/keyboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/extra_light_gray" />
+                android:background="@color/numpad_entry" />
 
             <View
                 android:id="@+id/separator3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/extra_light_gray" />
+                android:background="@color/numpad_entry" />
         </LinearLayout>
 
         <LinearLayout

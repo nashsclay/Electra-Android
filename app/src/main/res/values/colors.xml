@@ -33,6 +33,7 @@
     <item name="warning_status_bar" type="color">#7f5225</item>
     <item name="camera_guideline" type="color">#50636363</item>
     <item name="menu_icons" type="color">#29ABE2</item>
+    <item name="numpad_entry" type="color">#BC412F8A</item>
     <color name="shimmer_color">#a2ffffff</color>
 
     <item name="logo_gradient_start" type="color">#1c1242</item>
