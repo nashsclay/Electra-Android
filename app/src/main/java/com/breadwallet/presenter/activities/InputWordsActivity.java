@@ -80,16 +80,6 @@ public class InputWordsActivity extends BRActivity implements View.OnFocusChange
                     }, null, 0);
         }
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(InputWordsActivity.this).getCurrentWallet(InputWordsActivity.this);
-                UiUtils.showSupportFragment(InputWordsActivity.this, BRConstants.FAQ_PAPER_KEY, wm);
-            }
-        });
 
         TextView title = findViewById(R.id.title);
         TextView description = findViewById(R.id.description);

@@ -56,15 +56,6 @@ public class IntroActivity extends BRActivity {
         setContentView(R.layout.activity_intro);
         setOnClickListeners();
         updateBundles();
-        ImageButton faq = findViewById(R.id.faq_button);
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) return;
-                BaseWalletManager wm = WalletsMaster.getInstance(IntroActivity.this).getCurrentWallet(IntroActivity.this);
-                UiUtils.showSupportFragment(IntroActivity.this, BRConstants.FAQ_START_VIEW, wm);
-            }
-        });
 
         if (BuildConfig.DEBUG) {
             Utils.printPhoneSpecs(this);

@@ -23,17 +23,6 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/brd_logo_white" />
 
-        <ImageButton
-            android:id="@+id/help_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/faq_question_white"
-            android:visibility="visible"
-            app:layout_constraintRight_toRightOf="parent" />
-
     </RelativeLayout>
 
     <com.breadwallet.presenter.customviews.BaseTextView

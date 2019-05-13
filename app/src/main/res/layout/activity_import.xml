@@ -94,16 +94,6 @@
             tools:layout_editor_absoluteY="81dp" />
 
 
-        <ImageButton
-            android:id="@+id/faq_button"
-            android:layout_width="@dimen/faq_dimen"
-            android:layout_height="@dimen/faq_dimen"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/bread_margin"
-            android:background="?attr/faq_button_secondary_color"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp" />
-
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="match_parent"

@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
-            app:backgroundColor="@color/button_primary_normal"
+            app:backgroundColor="@color/primary_background"
             app:withStroke="false">
 
             <com.breadwallet.presenter.customviews.BaseTextView
@@ -127,7 +127,7 @@
             android:text="@string/Receive.share"
             android:textColor="@color/light_gray"
             android:textSize="18sp"
-            app:buttonType="1"
+            app:buttonType="4"
             app:hasShadow="false"
             app:isBreadButton="true" />
 

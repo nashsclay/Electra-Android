@@ -86,7 +86,6 @@ public class BRDialogView extends DialogFragment {
         mNegativeButton = view.findViewById(R.id.neg_button);
         mMainLayout = view.findViewById(R.id.main_layout);
         mButtonsLayout = view.findViewById(R.id.linearLayout3);
-        mHelpButton = view.findViewById(R.id.help_icon);
 
         //assuming that is the last text to bet set.
         if (Utils.isNullOrEmpty(mTitle)) {

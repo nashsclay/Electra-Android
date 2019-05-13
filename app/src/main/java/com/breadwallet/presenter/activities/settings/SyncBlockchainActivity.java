@@ -27,19 +27,6 @@ public class SyncBlockchainActivity extends BRActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sync_blockchain);
 
-        ImageButton faq = findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!UiUtils.isClickAllowed()) {
-                    return;
-                }
-                BaseWalletManager wm = WalletsMaster.getInstance(SyncBlockchainActivity.this).getCurrentWallet(SyncBlockchainActivity.this);
-                UiUtils.showSupportFragment(SyncBlockchainActivity.this, BRConstants.FAQ_RESCAN, wm);
-            }
-        });
-
         mRescanButton = findViewById(R.id.button_scan);
         mRescanButton.setOnClickListener(new View.OnClickListener() {
             @Override

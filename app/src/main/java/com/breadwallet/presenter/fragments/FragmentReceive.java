@@ -109,23 +109,6 @@ public class FragmentReceive extends ModalDialogFragment implements BalanceUpdat
         mSeparatorHeaderView.setVisibility(View.GONE);
         setListeners();
 
-        ImageButton faq = rootView.findViewById(R.id.faq_button);
-
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Activity app = getActivity();
-                if (app == null) {
-                    Log.e(TAG, "onClick: app is null, can't start the webview with url: "
-                            + HTTPServer.getPlatformUrl(HTTPServer.URL_SUPPORT));
-                    return;
-                }
-
-                BaseWalletManager wm = WalletsMaster.getInstance(app).getCurrentWallet(app);
-                UiUtils.showSupportFragment((FragmentActivity) app, BRConstants.FAQ_RECEIVE, wm);
-            }
-        });
-
         mSignalLayout.removeView(mCopiedLayout);
 
         mSignalLayout.setLayoutTransition(UiUtils.getDefaultTransition());
