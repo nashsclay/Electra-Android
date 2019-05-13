@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.breadwallet.R;
+import com.breadwallet.presenter.activities.HomeActivity;
 import com.breadwallet.presenter.activities.WalletActivity;
 import com.breadwallet.tools.manager.TxManager;
 import com.breadwallet.tools.threads.executor.BRExecutor;
@@ -52,7 +53,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
     private BRButton pendingFilter;
     private BRButton completedFilter;
     private BRButton cancelButton;
-    private WalletActivity breadActivity;
+    private HomeActivity breadActivity;
 
     public boolean[] filterSwitches = new boolean[4];
 
@@ -73,7 +74,7 @@ public class BRSearchBar extends android.support.v7.widget.Toolbar {
 
     private void init() {
         inflate(getContext(), R.layout.search_bar, this);
-        breadActivity = (WalletActivity) getContext();
+        breadActivity = (HomeActivity) getContext();
         searchEdit = findViewById(R.id.search_edit);
         sentFilter = findViewById(R.id.sent_filter);
         receivedFilter = findViewById(R.id.received_filter);
