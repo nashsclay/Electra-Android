@@ -15,10 +15,10 @@
     <item name="extra_light_gray" type="color">#D6DAE1</item>
     <item name="dark_gray" type="color">#65696e</item>
     <item name="almost_black" type="color">#303030</item>
-    <item name="dark_blue" type="color">#4C98FD</item>
-    <item name="on_boarding_secondary_text" type="color">#DEDCE7</item>
-    <item name="on_boarding_buy_button" type="color">#BC412F8A</item>
-    <item name="on_boarding_browse_button" type="color">#1C1242</item>
+    <item name="dark_blue" type="color">#1c1242</item>
+    <item name="on_boarding_secondary_text" type="color">#8B89A1</item>
+    <item name="on_boarding_buy_button" type="color">#29ABE2</item>
+    <item name="on_boarding_browse_button" type="color">#0DFFFFFF</item>
     <item name="notification_gradient_start" type="color">#63BCFF</item>
     <item name="notification_gradient_end" type="color">#378DFD</item>
     <item name="wallet_orange" type="color">#ff8000</item>
@@ -33,7 +33,6 @@
     <item name="warning_status_bar" type="color">#7f5225</item>
     <item name="camera_guideline" type="color">#50636363</item>
     <item name="menu_icons" type="color">#29ABE2</item>
-    <item name="numpad_entry" type="color">#BC412F8A</item>
     <color name="shimmer_color">#a2ffffff</color>
 
     <item name="logo_gradient_start" type="color">#1c1242</item>
@@ -54,7 +53,7 @@
     <item name="recover_wallet_header_gradient_start" type="color">#EF8BB1</item>
     <item name="recover_wallet_header_gradient_end" type="color">#FF5193</item>
 
-    <item name="pin_pad_text" type="color">#ffffff</item>
+    <item name="pin_pad_text" type="color">#1c1242</item>
     <item name="extra_light_blue_background" type="color">#f2f2f2</item>
 
     <item name="button_primary_normal" type="color">#29ABE2</item>
