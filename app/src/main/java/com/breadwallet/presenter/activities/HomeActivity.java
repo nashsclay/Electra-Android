@@ -72,11 +72,9 @@ import java.util.List;
 public class HomeActivity extends BRActivity implements InternetManager.ConnectionReceiverListener {
     private static final String TAG = HomeActivity.class.getSimpleName();
     public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.WalletActivity.EXTRA_DATA";
-    public static final int MAX_NUMBER_OF_CHILDREN = 2;
 
 
     private WalletListAdapter mAdapter;
-    private BaseTextView mFiatTotal;
     private BRNotificationBar mNotificationBar;
     private LinearLayout mMenuLayout;
     private MainViewModel mViewModel;
@@ -92,7 +90,6 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mFiatTotal = findViewById(R.id.total_assets_usd);
         mNotificationBar = findViewById(R.id.notification_bar);
         mMenuLayout = findViewById(R.id.menu_layout);
         mMenuLayout.setOnClickListener(new View.OnClickListener() {
@@ -125,18 +122,6 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                     mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
                             rate, wallet.getCurrencyCode()));
                 }
-            }
-        });
-
-        mViewModel.getAggregatedFiatBalance().observe(this, new Observer<BigDecimal>() {
-            @Override
-            public void onChanged(@Nullable BigDecimal aggregatedFiatBalance) {
-                if (aggregatedFiatBalance == null) {
-                    Log.e(TAG, "fiatTotalAmount is null");
-                    return;
-                }
-                mFiatTotal.setText(CurrencyUtils.getFormattedAmount(HomeActivity.this,
-                        BRSharedPrefs.getPreferredFiatIso(HomeActivity.this), aggregatedFiatBalance));
             }
         });
 
