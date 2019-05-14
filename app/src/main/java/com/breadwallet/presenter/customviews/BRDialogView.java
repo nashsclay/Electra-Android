@@ -65,7 +65,7 @@ public class BRDialogView extends DialogFragment {
     private DialogInterface.OnDismissListener mDismissListener;
     private BRButton mNegativeButton;
     private LinearLayout mButtonsLayout;
-    private ImageButton mHelpButton;
+    //private ImageButton mHelpButton;
     private LinearLayout mMainLayout;
     private boolean mAlignTextToStart = false;
 
@@ -174,24 +174,24 @@ public class BRDialogView extends DialogFragment {
         builder.setView(view);
 
         if (mShowHelpIcon) {
-            mHelpButton.setVisibility(View.VISIBLE);
+            //mHelpButton.setVisibility(View.VISIBLE);
 
             messageText.setPadding(0, 0, 0, Utils.getPixelsFromDps(getContext(), MESSAGE_PADDING_END));
 
-            mHelpButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!UiUtils.isClickAllowed()) {
-                        return;
-                    }
-                    if (mHelpListener != null) {
-                        mHelpListener.onClick(BRDialogView.this);
-                    }
-                }
-            });
+//            mHelpButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    if (!UiUtils.isClickAllowed()) {
+//                        return;
+//                    }
+//                    if (mHelpListener != null) {
+//                        mHelpListener.onClick(BRDialogView.this);
+//                    }
+//                }
+//            });
 
         } else {
-            mHelpButton.setVisibility(View.INVISIBLE);
+            //mHelpButton.setVisibility(View.INVISIBLE);
 
         }
         // Create the AlertDialog object and return it
