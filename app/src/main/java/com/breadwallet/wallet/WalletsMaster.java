@@ -110,7 +110,7 @@ public class WalletsMaster {
         for (TokenListMetaData.TokenInfo enabled : mTokenListMetaData.enabledCurrencies) {
 
             boolean isHidden = mTokenListMetaData.isCurrencyHidden(enabled.symbol);
-            Log.i("Johan",enabled.symbol+":"+isHidden);
+
             if (enabled.symbol.equalsIgnoreCase(BaseBitcoinWalletManager.BITCOIN_CURRENCY_CODE) && !isHidden) {
                 //BTC wallet
                 mWallets.add(WalletBitcoinManager.getInstance(app));

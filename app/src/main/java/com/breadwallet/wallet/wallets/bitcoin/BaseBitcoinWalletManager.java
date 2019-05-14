@@ -72,6 +72,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -86,7 +87,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
     private static final String TAG = BaseBitcoinWalletManager.class.getSimpleName();
 
     public static final int ONE_BITCOIN_IN_SATOSHIS = 100000000; // 1 Bitcoin in satoshis, 100 millions
-    private static final long MAXIMUM_AMOUNT = 30000000 * 1000; // Maximum number of coins available
+    private static final BigInteger MAXIMUM_AMOUNT =  new BigInteger("30000000").multiply(new BigInteger("1000")); // Maximum number of coins available
     private static final int SYNC_MAX_RETRY = 3;
 
     public static final String BITCOIN_CURRENCY_CODE = "ECA";
