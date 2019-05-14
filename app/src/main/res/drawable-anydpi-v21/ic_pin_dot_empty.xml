@@ -5,5 +5,5 @@
     android:viewportHeight="24.0">
     <path
         android:pathData="M12,12m-8,0a8,8 0,1 1,16 0a8,8 0,1 1,-16 0"
-        android:fillColor="@color/primary_background" android:strokeColor="@color/button_gradient_end_color" />
+        android:fillColor="@color/extra_light_gray" android:strokeColor="@color/extra_light_gray" />
 </vector>
