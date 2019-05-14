@@ -143,6 +143,16 @@
 
     <ImageView
         android:id="@+id/twitter_share_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintTop_toBottomOf="@+id/view5"/>
+
+    <ImageView
+        android:id="@+id/twitter_share_button1"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/twitter"
@@ -152,6 +162,16 @@
 
     <ImageView
         android:id="@+id/discord_share_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"/>
+
+    <ImageView
+        android:id="@+id/discord_share_button1"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/discord"
@@ -160,8 +180,34 @@
         app:layout_constraintLeft_toLeftOf="@+id/divider4"
         app:layout_constraintVertical_bias="0.0" />
 
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/brd_website"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <ImageView
         android:id="@+id/website_share_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/divider4"
+        app:layout_constraintTop_toBottomOf="@+id/divider5"/>
+
+    <ImageView
+        android:id="@+id/website_share_button1"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/website"
@@ -214,6 +260,16 @@
 
     <ImageView
         android:id="@+id/telegram_share_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/divider1"
+        app:layout_constraintTop_toBottomOf="@+id/view4"/>
+
+    <ImageView
+        android:id="@+id/telegram_share_button1"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/telegram"
