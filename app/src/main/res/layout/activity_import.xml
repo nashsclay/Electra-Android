@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/bread_margin"
-            android:background="@drawable/backward3"
+            android:background="@drawable/ic_arrow_left"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="81dp" />
 
