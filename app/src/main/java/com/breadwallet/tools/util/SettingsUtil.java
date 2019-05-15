@@ -96,11 +96,12 @@ public final class SettingsUtil {
             }
         }, false, R.drawable.ic_camera));
 
-        settingsItems.add(new BRSettingsItem(activity.getString(R.string.Settings_preferences), "", new View.OnClickListener() {
+        String currentFiatCode = BRSharedPrefs.getPreferredFiatIso(activity);
+        settingsItems.add(new BRSettingsItem(activity.getString(R.string.Settings_currency), currentFiatCode, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, SettingsActivity.class);
-                intent.putExtra(SettingsActivity.EXTRA_MODE, SettingsActivity.MODE_PREFERENCES);
+                Intent intent = new Intent(activity, DisplayCurrencyActivity.class);
+                // intent.putExtra(SettingsActivity.EXTRA_MODE, SettingsActivity.MODE_PREFERENCES);
                 activity.startActivity(intent);
                 activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
