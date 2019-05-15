@@ -207,6 +207,14 @@ public final class SettingsUtil {
                 activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, 0));
+        items.add(new BRSettingsItem(activity.getString(R.string.Settings_importTitle), "", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, ImportActivity.class);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+            }
+        }, false, 0));
         return items;
     }
 
@@ -303,7 +311,7 @@ public final class SettingsUtil {
                 }
             }, false, 0));
         }
-        items.add(new BRSettingsItem(context.getString(R.string.Settings_importTitle), "", new View.OnClickListener() {
+       /* items.add(new BRSettingsItem(context.getString(R.string.Settings_importTitle), "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!UiUtils.isClickAllowed()) return;
@@ -313,7 +321,7 @@ public final class SettingsUtil {
                 currentActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, 0));
-
+*/
         items.add(new BRSettingsItem(context.getString(R.string.ReScan_header), "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
