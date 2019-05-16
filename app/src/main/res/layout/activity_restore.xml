@@ -101,7 +101,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/backward3" />
+            android:src="@drawable/ic_arrow_left" />
 
     </RelativeLayout>
 

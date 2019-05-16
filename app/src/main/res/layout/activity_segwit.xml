@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:background="@drawable/backward3" />
+                android:background="@drawable/ic_arrow_left" />
 
             <com.breadwallet.presenter.customviews.BaseTextView
                 android:id="@+id/title"
@@ -79,7 +79,7 @@
         android:text="@string/common_google_play_services_enable_button"
         android:textColor="@color/white"
         android:textSize="@dimen/button_text_size"
-        app:buttonType="1"
+        app:buttonType="4"
         app:hasShadow="false"
         app:isBreadButton="true"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -809,10 +809,9 @@ public final class BRKeyStore {
         }
         BaseWalletManager wm = WalletsMaster.getInstance(context).getWalletByIso(context, iso);
         WalletSettingsConfiguration configs = wm.getSettingsConfiguration();
-        return  BigDecimal.ZERO;
-//        return (result != null && result.length > 0)
-//                ? new BigDecimal(new String(result))
-//                : (configs.getFingerprintLimits().size() != 0 ? configs.getFingerprintLimits().get(1) : BigDecimal.ZERO);
+        return (result != null && result.length > 0)
+                ? new BigDecimal(new String(result))
+                : (configs.getFingerprintLimits().size() != 0 ? configs.getFingerprintLimits().get(1) : BigDecimal.ZERO);
     }
 
     public static boolean putTotalLimit(Context context, BigDecimal totalLimit, String iso) {
