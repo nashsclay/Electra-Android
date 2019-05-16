@@ -474,17 +474,26 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
             JSONObject mainObject = new JSONObject(jsonString);
 
             JSONArray tickers = mainObject.getJSONArray("tickers");
-
+            Log.i("JOHAN","--------");
+            BigDecimal totalValue = new BigDecimal(0);
+            BigInteger totalExchanges = new BigInteger("0");
             for(int n = 0; n < tickers.length(); n++)
             {
+
                 JSONObject object = tickers.getJSONObject(n);
                 String target = object.getString("target");
-                if(target.compareToIgnoreCase("USDT") == 0){
-                    btcFiatRate = new CurrencyEntity("USD","DOLLAR", Float.parseFloat(object.getString("last")),"ECA");
+                JSONObject market = object.getJSONObject("market");
+                String exchange = market.getString("name");
+                Double last = object.getDouble("last");
+
+                if(target.compareToIgnoreCase("BTC") == 0 && last>0.0 && exchange.compareToIgnoreCase("Crypto Hub") !=0){
+                    totalValue = totalValue.add(new BigDecimal(last));
+                    totalExchanges = totalExchanges.add(new BigInteger("1"));
                 }
             }
+            Log.i("JOHAN","--------"+ totalExchanges.toString()+":"+totalValue.floatValue());
 
-
+            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.floatValue(),"ECA");
 
         }catch (Exception e)
         {
