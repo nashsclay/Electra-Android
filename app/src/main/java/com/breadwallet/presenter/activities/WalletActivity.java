@@ -217,7 +217,7 @@ public class WalletActivity extends BRActivity implements InternetManager.Connec
 
         boolean cryptoPreferred = BRSharedPrefs.isCryptoPreferred(this);
 
-        setPriceTags(cryptoPreferred, false);
+        setPriceTags(cryptoPreferred, true);
 
         Button moreInfoButton = mDelistedTokenBanner.findViewById(R.id.more_info_button);
         moreInfoButton.setOnClickListener(new View.OnClickListener() {
