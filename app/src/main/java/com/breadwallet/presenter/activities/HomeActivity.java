@@ -123,15 +123,21 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 for (Wallet wallet : wallets) {
                     mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
                     BigDecimal rate = wallet.getExchangeRate();
-                    rate = rate.setScale(6, RoundingMode.CEILING);
+                    Log.i("JOHAN","--------------");
+                    Log.i("JOHAN",wallet.getCurrencyCode());
+                    Log.i("JOHAN",rate.toPlainString());
+                    rate = rate.setScale(8, RoundingMode.DOWN);
+                    Log.i("JOHAN",rate.toPlainString());
+                    Log.i("JOHAN","--------------");
                     //mCurrencyPriceUsd.setText(wallet.getExchangeRate().toPlainString());
 
                     mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
-                            rate, wallet.getCurrencyCode()));
+                            rate.toPlainString(), wallet.getCurrencyCode()));
 
                     mBalancePrimary = findViewById(R.id.balance_primary);
 
                     String fiatBalance = wallet.getFiatBalance().toPlainString();
+
                     mBalancePrimary.setText(fiatBalance);
 
                     mBalanceSecondary = findViewById(R.id.balance_secondary);
