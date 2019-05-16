@@ -50,6 +50,7 @@ public class FingerprintActivity extends BRActivity {
         return app;
     }
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
