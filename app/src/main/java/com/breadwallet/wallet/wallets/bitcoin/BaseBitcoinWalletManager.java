@@ -73,6 +73,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -451,6 +452,9 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
 
         CurrencyEntity btcFiatRate = null;
         CurrencyEntity currencyBtcRate = null;
+        ArrayList<String> ignoredExchanges = new ArrayList<>();
+        ignoredExchanges.add("Crypto Hub");
+        ignoredExchanges.add("Cryptopia");
         try{
             HttpURLConnection urlConnection = null;
             URL url = new URL("https://api.coingecko.com/api/v3/coins/electra/tickers");
@@ -474,9 +478,9 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
             JSONObject mainObject = new JSONObject(jsonString);
 
             JSONArray tickers = mainObject.getJSONArray("tickers");
-            Log.i("JOHAN","--------");
+
             BigDecimal totalValue = new BigDecimal(0);
-            BigInteger totalExchanges = new BigInteger("0");
+            BigDecimal totalExchanges = new BigDecimal("0");
             for(int n = 0; n < tickers.length(); n++)
             {
 
@@ -486,14 +490,14 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
                 String exchange = market.getString("name");
                 Double last = object.getDouble("last");
 
-                if(target.compareToIgnoreCase("BTC") == 0 && last>0.0 && exchange.compareToIgnoreCase("Crypto Hub") !=0){
+                if(target.compareToIgnoreCase("BTC") == 0 && last>0.0 && !ignoredExchanges.contains(exchange)){
+                    Log.i(exchange,new BigDecimal(last).toPlainString());
                     totalValue = totalValue.add(new BigDecimal(last));
-                    totalExchanges = totalExchanges.add(new BigInteger("1"));
+                    totalExchanges = totalExchanges.add(new BigDecimal("1"));
                 }
             }
-            Log.i("JOHAN","--------"+ totalExchanges.toString()+":"+totalValue.floatValue());
 
-            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.floatValue(),"ECA");
+            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.DOWN).floatValue(),"ECA");
 
         }catch (Exception e)
         {
