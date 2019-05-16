@@ -497,7 +497,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
                 }
             }
 
-            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.DOWN).floatValue(),"ECA");
+            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.CEILING).floatValue(),"ECA");
 
         }catch (Exception e)
         {
