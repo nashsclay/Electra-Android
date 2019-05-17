@@ -189,7 +189,7 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
             mAmountEdit.setVisibility(View.VISIBLE);
             mFeeText.setVisibility(View.VISIBLE);
             mCurrencyCode.setTextColor(getContext().getColor(R.color.almost_black));
-            mCurrencyCode.setText(CurrencyUtils.getSymbolByIso(getActivity(), mSelectedCurrencyCode));
+            mCurrencyCode.setText(mSelectedCurrencyCode);
             mCurrencyCode.setTextSize(getResources().getDimension(R.dimen.currency_code_text_size_large));
 
             ConstraintSet set = new ConstraintSet();
@@ -339,7 +339,9 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
                     Activity app = getActivity();
                     mSelectedCurrencyCode = WalletsMaster.getInstance(app).getCurrentWallet(app).getCurrencyCode();
                 } else {
-                    mSelectedCurrencyCode = BRSharedPrefs.getPreferredFiatIso(getContext());
+                    Activity app = getActivity();
+                    mSelectedCurrencyCode = WalletsMaster.getInstance(app).getCurrentWallet(app).getCurrencyCode();
+                    // mSelectedCurrencyCode = BRSharedPrefs.getPreferredFiatIso(getContext());
                 }
                 updateText();
 

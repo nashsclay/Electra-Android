@@ -207,7 +207,8 @@ public class FragmentRequestAmount extends ModalDialogFragment implements BRKeyb
                 if (mSelectedCurrencyCode.equalsIgnoreCase(BRSharedPrefs.getPreferredFiatIso(getContext()))) {
                     mSelectedCurrencyCode = mWallet.getCurrencyCode();
                 } else {
-                    mSelectedCurrencyCode = BRSharedPrefs.getPreferredFiatIso(getContext());
+                    // mSelectedCurrencyCode = BRSharedPrefs.getPreferredFiatIso(getContext());
+                    mSelectedCurrencyCode = mWallet.getCurrencyCode();
                 }
                 BaseWalletManager wm = WalletsMaster.getInstance(getActivity()).getCurrentWallet(getActivity());
 
