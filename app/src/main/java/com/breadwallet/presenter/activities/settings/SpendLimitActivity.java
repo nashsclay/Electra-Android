@@ -26,6 +26,7 @@ import com.breadwallet.wallet.WalletsMaster;
 import com.breadwallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -111,7 +112,11 @@ public class SpendLimitActivity extends BaseSettingsActivity {
             BaseWalletManager walletManager = WalletsMaster.getInstance(SpendLimitActivity.this).getCurrentWallet(SpendLimitActivity.this);
 
             String text = String.format(item.compareTo(BigDecimal.ZERO) == 0 ? getString(R.string.TouchIdSpendingLimit) : "%s", item.toPlainString());
-            textViewItem.setText(text);
+
+            double amount = Double.parseDouble(text);
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+            textViewItem.setText(formatter.format(amount));
             ImageView checkMark = convertView.findViewById(R.id.currency_checkmark);
 
             if (position == getStepFromLimit(limit)) {
