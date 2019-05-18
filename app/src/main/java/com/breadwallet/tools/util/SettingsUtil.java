@@ -215,6 +215,14 @@ public final class SettingsUtil {
                 activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, 0));
+        items.add(new BRSettingsItem(activity.getString(R.string.ReScan_header), "", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, SyncBlockchainActivity.class);
+                activity.startActivity(intent);
+                activity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+            }
+        }, false, 0));
         return items;
     }
 
@@ -322,7 +330,7 @@ public final class SettingsUtil {
             }
         }, false, 0));
 */
-        items.add(new BRSettingsItem(context.getString(R.string.ReScan_header), "", new View.OnClickListener() {
+ /*       items.add(new BRSettingsItem(context.getString(R.string.ReScan_header), "", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!UiUtils.isClickAllowed()) return;
@@ -332,7 +340,7 @@ public final class SettingsUtil {
                 currentActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         }, false, 0));
-
+*/
         //add that for all currencies
         items.add(new BRSettingsItem(context.getString(R.string.NodeSelector_title), "", new View.OnClickListener() {
             @Override
