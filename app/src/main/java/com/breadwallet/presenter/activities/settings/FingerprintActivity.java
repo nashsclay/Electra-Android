@@ -38,7 +38,7 @@ import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
 import java.math.BigDecimal;
 
 
-public class FingerprintActivity extends BRActivity {
+public class FingerprintActivity extends BaseSettingsActivity {
     private static final String TAG = FingerprintActivity.class.getName();
 
     public RelativeLayout layout;
@@ -53,7 +53,6 @@ public class FingerprintActivity extends BRActivity {
         return app;
     }
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -160,5 +159,13 @@ public class FingerprintActivity extends BRActivity {
         super.onPause();
         appVisible = false;
     }
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_share_data;
+    }
 
+    @Override
+    public int getBackButtonId() {
+        return R.id.back_button;
+    }
 }
