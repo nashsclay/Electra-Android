@@ -198,8 +198,7 @@ public class MainViewModel extends AndroidViewModel {
             BaseWalletManager walletManager = mCurrencyToWalletManager.get(wallet.getCurrencyCode());
 
             if (walletManager != null) {
-                Log.i("Johan2",walletManager.getName());
-                Log.i("Johan2",walletManager.getFiatExchangeRate(getApplication()).toPlainString());
+
                 wallet.setExchangeRate(walletManager.getFiatExchangeRate(getApplication()));
                 wallet.setFiatBalance(walletManager.getFiatBalance(getApplication()));
                 wallet.setCryptoBalance(walletManager.getCachedBalance(getApplication()));

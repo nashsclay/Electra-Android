@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.WorkerThread;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -441,75 +442,16 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
         return mUiConfig;
     }
 
+
+
     @Override
     public BigDecimal getFiatExchangeRate(Context app) {
-//        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
-//        CurrencyEntity currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
-//        if (btcFiatRate == null || currencyBtcRate == null) {
-//            return BigDecimal.ZERO;
-//        }
-//        return new BigDecimal(btcFiatRate.rate).multiply(new BigDecimal(currencyBtcRate.rate));
-
-        CurrencyEntity btcFiatRate = null;
-        CurrencyEntity currencyBtcRate = null;
-        ArrayList<String> ignoredExchanges = new ArrayList<>();
-        ignoredExchanges.add("Crypto Hub");
-        ignoredExchanges.add("Cryptopia");
-        try{
-            HttpURLConnection urlConnection = null;
-            URL url = new URL("https://api.coingecko.com/api/v3/coins/electra/tickers");
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.setReadTimeout(10000 /* milliseconds */ );
-            urlConnection.setConnectTimeout(15000 /* milliseconds */ );
-            urlConnection.setDoOutput(true);
-            urlConnection.connect();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-            StringBuilder sb = new StringBuilder();
-
-            String line;
-            while ((line = br.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            br.close();
-            int spacesToIndentEachLevel = 2;
-            String jsonString = sb.toString();
-            JSONObject mainObject = new JSONObject(jsonString);
-
-            JSONArray tickers = mainObject.getJSONArray("tickers");
-
-            BigDecimal totalValue = new BigDecimal(0);
-            BigDecimal totalExchanges = new BigDecimal("0");
-            for(int n = 0; n < tickers.length(); n++)
-            {
-
-                JSONObject object = tickers.getJSONObject(n);
-                String target = object.getString("target");
-                JSONObject market = object.getJSONObject("market");
-                String exchange = market.getString("name");
-                Double last = object.getDouble("last");
-
-                if(target.compareToIgnoreCase("BTC") == 0 && last>0.0 && !ignoredExchanges.contains(exchange)){
-                    Log.i(exchange,new BigDecimal(last).toPlainString());
-                    totalValue = totalValue.add(new BigDecimal(last));
-                    totalExchanges = totalExchanges.add(new BigDecimal("1"));
-                }
-            }
-
-            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.CEILING).floatValue(),"ECA");
-
-        }catch (Exception e)
-        {
-            Log.e("ERROR",e.toString());
-        }
-//        btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
-//        currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
-        if (btcFiatRate == null && currencyBtcRate == null) {
+        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, WalletBitcoinManager.BITCOIN_CURRENCY_CODE, BRSharedPrefs.getPreferredFiatIso(app));
+        CurrencyEntity currencyBtcRate = RatesDataSource.getInstance(app).getCurrencyByCode(app, getCurrencyCode(), WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
+        if (btcFiatRate == null || currencyBtcRate == null) {
             return BigDecimal.ZERO;
         }
-        //Log.i("JOHAN",Float.toString(btcFiatRate.rate));
-        return new BigDecimal(btcFiatRate.rate);
+        return new BigDecimal(currencyBtcRate.rate);
     }
 
     @Override
@@ -526,6 +468,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
 
     @Override
     public BigDecimal getFiatForSmallestCrypto(Context app, BigDecimal amount, CurrencyEntity ent) {
+
         if (amount.doubleValue() == 0) {
             return amount;
         }

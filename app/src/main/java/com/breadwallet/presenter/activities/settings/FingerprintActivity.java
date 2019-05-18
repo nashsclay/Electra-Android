@@ -9,6 +9,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -19,12 +20,14 @@ import android.widget.ToggleButton;
 import com.breadwallet.R;
 import com.breadwallet.presenter.activities.util.BRActivity;
 import com.breadwallet.presenter.customviews.BRDialogView;
+import com.breadwallet.presenter.entities.CurrencyEntity;
 import com.breadwallet.presenter.interfaces.BRAuthCompletion;
 import com.breadwallet.tools.animation.UiUtils;
 import com.breadwallet.tools.animation.BRDialog;
 import com.breadwallet.tools.manager.BRSharedPrefs;
 import com.breadwallet.tools.security.AuthManager;
 import com.breadwallet.tools.security.BRKeyStore;
+import com.breadwallet.tools.sqlite.RatesDataSource;
 import com.breadwallet.tools.util.BRConstants;
 import com.breadwallet.tools.util.CurrencyUtils;
 import com.breadwallet.tools.util.Utils;
@@ -35,7 +38,7 @@ import com.breadwallet.wallet.wallets.bitcoin.WalletBitcoinManager;
 import java.math.BigDecimal;
 
 
-public class FingerprintActivity extends BRActivity {
+public class FingerprintActivity extends BaseSettingsActivity {
     private static final String TAG = FingerprintActivity.class.getName();
 
     public RelativeLayout layout;
@@ -50,7 +53,6 @@ public class FingerprintActivity extends BRActivity {
         return app;
     }
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,13 +129,16 @@ public class FingerprintActivity extends BRActivity {
         //amount in satoshis
 
         WalletBitcoinManager wm = WalletBitcoinManager.getInstance(this);
-        BigDecimal cryptoLimit = BRKeyStore.getSpendLimit(this, wm.getCurrencyCode());
 
+        BigDecimal cryptoLimit = BRKeyStore.getSpendLimit(this, wm.getCurrencyCode());
         //amount in user preferred ISO (e.g. USD)
         BigDecimal curAmount = wm.getFiatForSmallestCrypto(this, cryptoLimit, null);
         //formatted string for the label
-        return String.format(getString(R.string.TouchIdSettings_spendingLimit),
-                CurrencyUtils.getFormattedAmount(this, wm.getCurrencyCode(), cryptoLimit), CurrencyUtils.getFormattedAmount(this, iso, curAmount));
+
+        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(this).getCurrencyByCode(app, "ECA", BRSharedPrefs.getPreferredFiatIso(this));
+
+        BigDecimal total = wm.getFiatExchangeRate(this).multiply(new BigDecimal(btcFiatRate.rate)).multiply(cryptoLimit);
+        return String.format(getString(R.string.TouchIdSettings_spendingLimit), cryptoLimit+"ECA", CurrencyUtils.getFormattedAmount(this, iso, total));
     }
 
     @Override
@@ -154,5 +159,13 @@ public class FingerprintActivity extends BRActivity {
         super.onPause();
         appVisible = false;
     }
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_share_data;
+    }
 
+    @Override
+    public int getBackButtonId() {
+        return R.id.back_button;
+    }
 }

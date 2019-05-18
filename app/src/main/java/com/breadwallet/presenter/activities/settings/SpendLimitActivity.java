@@ -26,9 +26,11 @@ import com.breadwallet.wallet.WalletsMaster;
 import com.breadwallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.List;
 
-public class SpendLimitActivity extends BRActivity {
+public class SpendLimitActivity extends BaseSettingsActivity {
     private static final String TAG = SpendLimitActivity.class.getName();
     private ListView listView;
     private LimitAdaptor adapter;
@@ -44,7 +46,6 @@ public class SpendLimitActivity extends BRActivity {
         final BaseWalletManager wm = WalletsMaster.getInstance(this).getCurrentWallet(this);
 
         List<BigDecimal> limits = wm.getSettingsConfiguration().getFingerprintLimits();
-
         adapter.addAll(limits);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -110,10 +111,12 @@ public class SpendLimitActivity extends BRActivity {
             BigDecimal item = getItem(position);
             BaseWalletManager walletManager = WalletsMaster.getInstance(SpendLimitActivity.this).getCurrentWallet(SpendLimitActivity.this);
 
-            String cryptoAmount = CurrencyUtils.getFormattedAmount(SpendLimitActivity.this, walletManager.getCurrencyCode(), item);
+            String text = String.format(item.compareTo(BigDecimal.ZERO) == 0 ? getString(R.string.TouchIdSpendingLimit) : "%s", item.toPlainString());
 
-            String text = String.format(item.compareTo(BigDecimal.ZERO) == 0 ? getString(R.string.TouchIdSpendingLimit) : "%s", cryptoAmount);
-            textViewItem.setText(text);
+            double amount = Double.parseDouble(text);
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+
+            textViewItem.setText(formatter.format(amount));
             ImageView checkMark = convertView.findViewById(R.id.currency_checkmark);
 
             if (position == getStepFromLimit(limit)) {
@@ -135,6 +138,15 @@ public class SpendLimitActivity extends BRActivity {
             return IGNORE_ITEM_VIEW_TYPE;
         }
 
+    }
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_share_data;
+    }
+
+    @Override
+    public int getBackButtonId() {
+        return R.id.back_button;
     }
 
 }

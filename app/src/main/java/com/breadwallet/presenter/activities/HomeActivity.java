@@ -123,7 +123,8 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
                 for (Wallet wallet : wallets) {
                     mCurrencyPriceUsd = findViewById(R.id.currency_usd_price);
                     BigDecimal rate = wallet.getExchangeRate();
-                    rate = rate.setScale(8, RoundingMode.DOWN);
+
+                    rate = rate.setScale(8, RoundingMode.HALF_EVEN);
 
                     mCurrencyPriceUsd.setText(String.format(getString(R.string.Account_exchangeRate),
                             rate.toPlainString(), wallet.getCurrencyCode()));

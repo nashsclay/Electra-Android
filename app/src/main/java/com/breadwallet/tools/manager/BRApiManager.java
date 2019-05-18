@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -81,6 +82,7 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
     private static final String TOKEN_RATES_URL_SUFFIX = "&tsyms=BTC";
     private static final int FSYMS_CHAR_LIMIT = 300;
     private static final String CONTRACT_INITIAL_VALUE = "contract_initial_value";
+    private static final String ECA_URL = "https://api.coingecko.com/api/v3/coins/electra/tickers";
 
     private static BRApiManager mInstance;
     private Timer mTimer;
@@ -229,11 +231,13 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
             while (keys.hasNext()) {
                 String currencyCode = keys.next();
                 JSONObject jsonObject = ratesJsonObject.getJSONObject(currencyCode);
-                String code = WalletBitcoinManager.BITCOIN_CURRENCY_CODE;
+                String code = "BTC";
                 String rate = jsonObject.getString(code);
                 CurrencyEntity currencyEntity = new CurrencyEntity(code, "", Float.valueOf(rate), currencyCode);
                 ratesList.add(currencyEntity);
             }
+            ratesList.add(fetchAverageECARate(context));
+
             RatesDataSource.getInstance(context).putCurrencies(context, ratesList);
         } catch (JSONException e) {
             BRReportsManager.reportBug(e);
@@ -261,6 +265,8 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
             mTimer = null;
         }
     }
+
+
 
     @WorkerThread
     private static JSONArray fetchFiatRates(Context app) {
@@ -310,10 +316,51 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
                     currencyEntities.add(currencyEntity);
                 }
             }
+            currencyEntities.add(fetchAverageECARate(context));
             RatesDataSource.getInstance(context).putCurrencies(context, currencyEntities);
         } catch (JSONException ex) {
             Log.e(TAG, "fetchNewTokensData: ", ex);
         }
+    }
+
+    @WorkerThread
+    private static CurrencyEntity fetchAverageECARate(Context context) {
+        ArrayList<String> ignoredExchanges = new ArrayList<>();
+        ignoredExchanges.add("Crypto Hub");
+        ignoredExchanges.add("Cryptopia");
+        try{
+            String jsonString = urlGET(context, ECA_URL);
+
+            JSONObject mainObject = new JSONObject(jsonString);
+
+            JSONArray tickers = mainObject.getJSONArray("tickers");
+
+            BigDecimal totalValue = new BigDecimal(0);
+            BigDecimal totalExchanges = new BigDecimal("0");
+            for(int n = 0; n < tickers.length(); n++)
+            {
+                JSONObject object = tickers.getJSONObject(n);
+                String target = object.getString("target");
+                JSONObject market = object.getJSONObject("market");
+                String exchange = market.getString("name");
+                Double last = object.getDouble("last");
+
+                if(target.compareToIgnoreCase("BTC") == 0 && last>0.0 && !ignoredExchanges.contains(exchange)){
+
+                    Log.i(exchange,new BigDecimal(last).toPlainString());
+                    totalValue = totalValue.add(new BigDecimal(last));
+                    totalExchanges = totalExchanges.add(new BigDecimal("1"));
+                }
+
+            }
+
+            return new CurrencyEntity("ECA","ELECTRA", totalValue.divide(totalExchanges,8, RoundingMode.HALF_EVEN).floatValue(),"ECA");
+
+        }catch (Exception e)
+        {
+            Log.e("ERROR",e.toString());
+        }
+        return  null;
     }
 
     private static CurrencyEntity convertEthRateToBtc(Context context, CurrencyEntity currencyEntity) {
