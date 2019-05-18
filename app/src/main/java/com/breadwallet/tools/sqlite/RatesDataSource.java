@@ -175,7 +175,7 @@ public class RatesDataSource implements BRDataSourceInterface {
     }
 
     public synchronized CurrencyEntity getCurrencyByCode(Context app, String iso, String code) {
-        printTest();
+
         Cursor cursor = null;
         CurrencyEntity result = null;
         try {

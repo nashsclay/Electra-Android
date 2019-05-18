@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
-public class SpendLimitActivity extends BRActivity {
+public class SpendLimitActivity extends BaseSettingsActivity {
     private static final String TAG = SpendLimitActivity.class.getName();
     private ListView listView;
     private LimitAdaptor adapter;
@@ -133,6 +133,15 @@ public class SpendLimitActivity extends BRActivity {
             return IGNORE_ITEM_VIEW_TYPE;
         }
 
+    }
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_share_data;
+    }
+
+    @Override
+    public int getBackButtonId() {
+        return R.id.back_button;
     }
 
 }
