@@ -26,6 +26,7 @@ import com.breadwallet.wallet.WalletsMaster;
 import com.breadwallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 public class SpendLimitActivity extends BRActivity {
@@ -44,7 +45,6 @@ public class SpendLimitActivity extends BRActivity {
         final BaseWalletManager wm = WalletsMaster.getInstance(this).getCurrentWallet(this);
 
         List<BigDecimal> limits = wm.getSettingsConfiguration().getFingerprintLimits();
-
         adapter.addAll(limits);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -110,9 +110,7 @@ public class SpendLimitActivity extends BRActivity {
             BigDecimal item = getItem(position);
             BaseWalletManager walletManager = WalletsMaster.getInstance(SpendLimitActivity.this).getCurrentWallet(SpendLimitActivity.this);
 
-            String cryptoAmount = CurrencyUtils.getFormattedAmount(SpendLimitActivity.this, walletManager.getCurrencyCode(), item);
-
-            String text = String.format(item.compareTo(BigDecimal.ZERO) == 0 ? getString(R.string.TouchIdSpendingLimit) : "%s", cryptoAmount);
+            String text = String.format(item.compareTo(BigDecimal.ZERO) == 0 ? getString(R.string.TouchIdSpendingLimit) : "%s", item.toPlainString());
             textViewItem.setText(text);
             ImageView checkMark = convertView.findViewById(R.id.currency_checkmark);
 

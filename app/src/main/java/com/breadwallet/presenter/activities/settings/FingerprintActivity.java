@@ -20,12 +20,14 @@ import android.widget.ToggleButton;
 import com.breadwallet.R;
 import com.breadwallet.presenter.activities.util.BRActivity;
 import com.breadwallet.presenter.customviews.BRDialogView;
+import com.breadwallet.presenter.entities.CurrencyEntity;
 import com.breadwallet.presenter.interfaces.BRAuthCompletion;
 import com.breadwallet.tools.animation.UiUtils;
 import com.breadwallet.tools.animation.BRDialog;
 import com.breadwallet.tools.manager.BRSharedPrefs;
 import com.breadwallet.tools.security.AuthManager;
 import com.breadwallet.tools.security.BRKeyStore;
+import com.breadwallet.tools.sqlite.RatesDataSource;
 import com.breadwallet.tools.util.BRConstants;
 import com.breadwallet.tools.util.CurrencyUtils;
 import com.breadwallet.tools.util.Utils;
@@ -128,12 +130,16 @@ public class FingerprintActivity extends BRActivity {
         //amount in satoshis
 
         WalletBitcoinManager wm = WalletBitcoinManager.getInstance(this);
+
         BigDecimal cryptoLimit = BRKeyStore.getSpendLimit(this, wm.getCurrencyCode());
         //amount in user preferred ISO (e.g. USD)
         BigDecimal curAmount = wm.getFiatForSmallestCrypto(this, cryptoLimit, null);
         //formatted string for the label
-        return String.format(getString(R.string.TouchIdSettings_spendingLimit),
-                CurrencyUtils.getFormattedAmount(this, wm.getCurrencyCode(), cryptoLimit), CurrencyUtils.getFormattedAmount(this, iso, curAmount));
+
+        CurrencyEntity btcFiatRate = RatesDataSource.getInstance(this).getCurrencyByCode(app, "ECA", BRSharedPrefs.getPreferredFiatIso(this));
+
+        BigDecimal total = wm.getFiatExchangeRate(this).multiply(new BigDecimal(btcFiatRate.rate)).multiply(cryptoLimit);
+        return String.format(getString(R.string.TouchIdSettings_spendingLimit), cryptoLimit+"ECA", CurrencyUtils.getFormattedAmount(this, iso, total));
     }
 
     @Override

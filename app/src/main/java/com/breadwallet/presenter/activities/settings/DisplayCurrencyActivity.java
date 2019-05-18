@@ -123,7 +123,7 @@ public class DisplayCurrencyActivity extends BaseSettingsActivity {
         CurrencyEntity entity = RatesDataSource.getInstance(this).getCurrencyByCode(this, "BTC", iso);//hard code BTC for this one
         if (entity != null) {
             String formattedExchangeRate = CurrencyUtils.getFormattedAmount(DisplayCurrencyActivity.this, BRSharedPrefs.getPreferredFiatIso(this), new BigDecimal(entity.rate));
-            mExchangeText.setText(String.format("%s = %s", CurrencyUtils.getFormattedAmount(this, "BTC", new BigDecimal(100000000)), formattedExchangeRate));
+            mExchangeText.setText(String.format("%s = %s", CurrencyUtils.getFormattedAmount(this, "BTC", new BigDecimal(1)), formattedExchangeRate));
         }
         mAdapter.notifyDataSetChanged();
     }

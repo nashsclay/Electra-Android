@@ -789,6 +789,7 @@ public final class BRKeyStore {
     }
 
     public static boolean putSpendLimit(Context context, BigDecimal spendLimit, String iso) {
+
         AliasObject obj = ALIAS_OBJECT_MAP.get(SPEND_LIMIT_ALIAS);
         byte[] bytesToStore = spendLimit.toPlainString().getBytes();
         try {
@@ -809,9 +810,13 @@ public final class BRKeyStore {
         }
         BaseWalletManager wm = WalletsMaster.getInstance(context).getWalletByIso(context, iso);
         WalletSettingsConfiguration configs = wm.getSettingsConfiguration();
-        return (result != null && result.length > 0)
-                ? new BigDecimal(new String(result))
-                : (configs.getFingerprintLimits().size() != 0 ? configs.getFingerprintLimits().get(1) : BigDecimal.ZERO);
+        if(configs == null){
+            return  BigDecimal.ZERO;
+        }else{
+            return (result != null && result.length > 0)
+                    ? new BigDecimal(new String(result))
+                    : (configs.getFingerprintLimits().size() != 0 ? configs.getFingerprintLimits().get(1) : BigDecimal.ZERO);
+        }
     }
 
     public static boolean putTotalLimit(Context context, BigDecimal totalLimit, String iso) {
