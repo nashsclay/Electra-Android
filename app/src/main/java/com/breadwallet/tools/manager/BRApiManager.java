@@ -231,11 +231,13 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
             while (keys.hasNext()) {
                 String currencyCode = keys.next();
                 JSONObject jsonObject = ratesJsonObject.getJSONObject(currencyCode);
-                String code = WalletBitcoinManager.BITCOIN_CURRENCY_CODE;
+                String code = "BTC";
                 String rate = jsonObject.getString(code);
                 CurrencyEntity currencyEntity = new CurrencyEntity(code, "", Float.valueOf(rate), currencyCode);
                 ratesList.add(currencyEntity);
             }
+            ratesList.add(fetchAverageECARate(context));
+
             RatesDataSource.getInstance(context).putCurrencies(context, ratesList);
         } catch (JSONException e) {
             BRReportsManager.reportBug(e);
@@ -327,7 +329,7 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
         ignoredExchanges.add("Crypto Hub");
         ignoredExchanges.add("Cryptopia");
         try{
-            String jsonString = urlGET(context, "https://api.coingecko.com/api/v3/coins/electra/tickers");
+            String jsonString = urlGET(context, ECA_URL);
 
             JSONObject mainObject = new JSONObject(jsonString);
 
