@@ -497,7 +497,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
                 }
             }
 
-            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.CEILING).floatValue(),"ECA");
+            btcFiatRate = new CurrencyEntity("USD","DOLLAR", totalValue.divide(totalExchanges,8, RoundingMode.HALF_EVEN).floatValue(),"ECA");
 
         }catch (Exception e)
         {
@@ -508,7 +508,6 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
         if (btcFiatRate == null && currencyBtcRate == null) {
             return BigDecimal.ZERO;
         }
-        //Log.i("JOHAN",Float.toString(btcFiatRate.rate));
         return new BigDecimal(btcFiatRate.rate);
     }
 
@@ -526,6 +525,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
 
     @Override
     public BigDecimal getFiatForSmallestCrypto(Context app, BigDecimal amount, CurrencyEntity ent) {
+
         if (amount.doubleValue() == 0) {
             return amount;
         }

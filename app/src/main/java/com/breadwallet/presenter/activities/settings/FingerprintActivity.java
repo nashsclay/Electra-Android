@@ -9,6 +9,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -128,7 +129,6 @@ public class FingerprintActivity extends BRActivity {
 
         WalletBitcoinManager wm = WalletBitcoinManager.getInstance(this);
         BigDecimal cryptoLimit = BRKeyStore.getSpendLimit(this, wm.getCurrencyCode());
-
         //amount in user preferred ISO (e.g. USD)
         BigDecimal curAmount = wm.getFiatForSmallestCrypto(this, cryptoLimit, null);
         //formatted string for the label
