@@ -364,17 +364,16 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
     }
 
     private static CurrencyEntity convertEthRateToBtc(Context context, CurrencyEntity currencyEntity) {
-        if (currencyEntity == null) {
             return null;
-        }
-        CurrencyEntity ethBtcExchangeRate = RatesDataSource.getInstance(context)
+
+       /* CurrencyEntity ethBtcExchangeRate = RatesDataSource.getInstance(context)
                 .getCurrencyByCode(context, WalletEthManager.ETH_CURRENCY_CODE, WalletBitcoinManager.BITCOIN_CURRENCY_CODE);
         if (ethBtcExchangeRate == null) {
             Log.e(TAG, "computeCccRates: ethBtcExchangeRate is null");
             return null;
-        }
-        float newRate = new BigDecimal(currencyEntity.rate).multiply(new BigDecimal(ethBtcExchangeRate.rate)).floatValue();
-        return new CurrencyEntity(WalletBitcoinManager.BITCOIN_CURRENCY_CODE, currencyEntity.name, newRate, currencyEntity.iso);
+        } */
+        // float newRate = new BigDecimal(currencyEntity.rate).multiply(new BigDecimal(ethBtcExchangeRate.rate)).floatValue();
+        // return new CurrencyEntity(WalletBitcoinManager.BITCOIN_CURRENCY_CODE, currencyEntity.name, newRate, currencyEntity.iso);
     }
 
 
