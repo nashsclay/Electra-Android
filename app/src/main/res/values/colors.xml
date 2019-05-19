@@ -73,7 +73,7 @@
 
     //Currency screen
     <color name="currency_header_background">#1c1242</color>
-    <color name="currency_subheading_color">#F0E5D7</color>
+    <color name="currency_subheading_color">#f7f1fc</color>
     <color name="currency_buttons_color">#ffac26</color>
 
     //Home screen
