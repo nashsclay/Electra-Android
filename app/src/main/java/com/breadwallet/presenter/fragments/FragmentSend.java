@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.breadwallet.BuildConfig;
 import com.breadwallet.R;
+import com.breadwallet.presenter.activities.HomeActivity;
 import com.breadwallet.presenter.activities.WalletActivity;
 import com.breadwallet.presenter.customviews.BRButton;
 import com.breadwallet.presenter.customviews.BRDialogView;
@@ -588,7 +589,7 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
     private void loadParameters() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            CryptoRequest request = (CryptoRequest) arguments.getSerializable(WalletActivity.EXTRA_CRYPTO_REQUEST);
+            CryptoRequest request = (CryptoRequest) arguments.getSerializable(HomeActivity.EXTRA_CRYPTO_REQUEST);
             if (request != null) {
                 saveViewModelData(getActivity(), request);
             }

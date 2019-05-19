@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.breadwallet.R;
 import com.breadwallet.core.BRCoreKey;
+import com.breadwallet.presenter.activities.HomeActivity;
 import com.breadwallet.presenter.activities.WalletActivity;
 import com.breadwallet.presenter.entities.CryptoRequest;
 import com.breadwallet.tools.animation.UiUtils;
@@ -36,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
-import static com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST;
+import static com.breadwallet.presenter.activities.HomeActivity.EXTRA_CRYPTO_REQUEST;
 import static com.breadwallet.tools.util.BRConstants.BREAD;
 
 /**
@@ -327,7 +328,7 @@ public class CryptoUriParser {
             @Override
             public void run() {
                 BRSharedPrefs.putCurrentWalletCurrencyCode(context, requestObject.getCurrencyCode());
-                Intent newIntent = new Intent(context, WalletActivity.class);
+                Intent newIntent = new Intent(context, HomeActivity.class);
                 newIntent.addFlags(FLAG_ACTIVITY_SINGLE_TOP);
                 newIntent.putExtra(EXTRA_CRYPTO_REQUEST, requestObject);
                 context.startActivity(newIntent);

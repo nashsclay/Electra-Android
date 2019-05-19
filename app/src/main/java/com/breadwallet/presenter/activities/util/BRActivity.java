@@ -87,10 +87,10 @@ public class BRActivity extends FragmentActivity {
     protected void onStop() {
         super.onStop();
         //open back to HomeActivity if needed
-        if (this instanceof WalletActivity)
-            BRSharedPrefs.putAppBackgroundedFromHome(this, false);
-        else if (this instanceof HomeActivity)
+        // if (this instanceof WalletActivity)
             BRSharedPrefs.putAppBackgroundedFromHome(this, true);
+       // else if (this instanceof HomeActivity)
+         //   BRSharedPrefs.putAppBackgroundedFromHome(this, true);
 
     }
 
