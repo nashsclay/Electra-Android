@@ -17,7 +17,7 @@
     <!-- About screen twitter label -->
     <string name="About.twitter">Twitter</string>
     <!-- About screen wallet ID label -->
-    <string name="About.walletID">ID de récompenses BRD</string>
+    <string name="About.walletID">Website</string>
     <!-- Close modal button accessibility label -->
     <string name="AccessibilityLabels.close">Fermer</string>
     <!-- Support center accessibiliy label -->
@@ -37,7 +37,7 @@
     <!-- Error alert title -->
     <string name="Alert.error">Erreur</string>
     <!-- Keystore error -->
-    <string name="Alert.keystore.generic.android">Un problème est survenu avec votre keystore Android OS, veuillez contacter support@breadwallet.com</string>
+    <string name="Alert.keystore.generic.android">Un problème est survenu avec votre keystore Android OS, veuillez contacter support@electraproject.org</string>
     <!-- KeyStore error, keys are invalidated -->
     <string name="Alert.keystore.invalidated.android">Vos données cryptées Electra ont été récemment invalidées, car le verrouillage de l\'écran de votre appareil Android a été désactivé.</string>
     <!-- Keystore error title -->
