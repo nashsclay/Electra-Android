@@ -668,7 +668,7 @@
     <string name="Settings.earlyAccess">Använd Snabb tillgång</string>
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">Aktivera Segwit</string>
-    <!-- Are you enjoying bread alert message body -->
+    <!-- Are you enjoying Electra alert message body -->
     <string name="Settings.enjoying">Gillar du Electra?</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">Utgiftsgräns för Face ID</string>
@@ -774,7 +774,7 @@
     <string name="TouchIdSettings.spendingLimit">Utnyttjandegräns: %1$s (%2$s)</string>
     <!-- Touch id switch label. -->
     <string name="TouchIdSettings.switchLabel">Aktivera Touch ID för Electra</string>
-    <!-- Enable fingerprint for this wallet called Bread -->
+    <!-- Enable fingerprint for this wallet called Electra -->
     <string name="TouchIdSettings.switchLabel.android">Aktivera fingeravtrycksautentisering</string>
     <!-- Touch ID settings view title -->
     <string name="TouchIdSettings.title">Touch ID</string>
