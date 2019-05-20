@@ -17,7 +17,7 @@
     <!-- About screen twitter label -->
     <string name="About.twitter">Twitter</string>
     <!-- About screen wallet ID label -->
-    <string name="About.walletID">Belönings-ID för BRD</string>
+    <string name="About.walletID">Website</string>
     <!-- Close modal button accessibility label -->
     <string name="AccessibilityLabels.close">Stäng</string>
     <!-- Support center accessibiliy label -->
@@ -31,15 +31,15 @@
     <!-- Loading Wallet Message -->
     <string name="Account.loadingMessage">Laddar plånbok</string>
     <!-- Default wallet name -->
-    <string name="AccountHeader.defaultWalletName">Mitt BRD</string>
+    <string name="AccountHeader.defaultWalletName">Mitt Electra</string>
     <!-- Third party keyboard warning -->
     <string name="Alert.customKeyboard.android">Det verkar som att du använder ett tangentbord från tredje part, vilket kan registrera det du skriver och stjäla din kryptonyckel. Byt till Androids standardtangentbord för extra säkerhet.</string>
     <!-- Error alert title -->
     <string name="Alert.error">Fel</string>
     <!-- Keystore error -->
-    <string name="Alert.keystore.generic.android">Det har uppstått ett problem med KeyStore till Android OS. Kontakta support@breadwallet.com</string>
+    <string name="Alert.keystore.generic.android">Det har uppstått ett problem med KeyStore till Android OS. Kontakta support@electraproject.org</string>
     <!-- KeyStore error, keys are invalidated -->
-    <string name="Alert.keystore.invalidated.android">Dina krypterade BRD-uppgifter har nyligen ogiltigförklarats på grund av att Androids skärmlås inaktiverades.</string>
+    <string name="Alert.keystore.invalidated.android">Dina krypterade Electra-uppgifter har nyligen ogiltigförklarats på grund av att Androids skärmlås inaktiverades.</string>
     <!-- Keystore error title -->
     <string name="Alert.keystore.title.android">KeyStore-fel för Android</string>
     <!-- No internet alert message -->
@@ -69,11 +69,11 @@
     <!-- Fingerprint was recognized by the scanner -->
     <string name="Alerts.touchIdSucceeded.android">Fingeravtryck bekräftat</string>
     <!-- Tell the user where they can enable permissions to access device storage. -->
-    <string name="Android.allowFileSystemAccess">Vi ber dig att medge lagringstillåtelse i dina enhetsinställningar: \"Inställningar\" &gt; \"Appar\" &gt; \"BRD\" &gt; \"Tillåtelser\".</string>
+    <string name="Android.allowFileSystemAccess">Vi ber dig att medge lagringstillåtelse i dina enhetsinställningar: \"Inställningar\" &gt; \"Appar\" &gt; \"Electra\" &gt; \"Tillåtelser\".</string>
     <!-- The "home" screen is the name of the top level menu for the app. -->
     <string name="Android.BCH.welcome.message">Valfri BCH i din plånbok kan nås via hemskärmen.</string>
     <!-- Warning about using apps that can alter the screen -->
-    <string name="Android.screenAlteringMessage">BRD fungerar inte korrekt om inte skärmskiftande appar (såsom Twilight) är inaktiverade.</string>
+    <string name="Android.screenAlteringMessage">Electra fungerar inte korrekt om inte skärmskiftande appar (såsom Twilight) är inaktiverade.</string>
     <!-- An app that alters the screen ("screen-altering app") has been detected. -->
     <string name="Android.screenAlteringTitle">Skärmskiftande app upptäckt</string>
     <!-- JSON Serialization error message -->
@@ -197,7 +197,7 @@
     <!-- Email unavailable alert title -->
     <string name="ErrorMessages.emailUnavailableTitle">E-posten är inte tillgänglig</string>
     <!-- Message that gets shown when we've detected the user has encountered the looping lock-screen bug. (preserve [ ] characters) -->
-    <string name="ErrorMessages.loopingLockScreen.android">BRD kan inte verifieras på grund av en bugg i din version av Android. [Klicka här för mer information.]</string>
+    <string name="ErrorMessages.loopingLockScreen.android">Electra kan inte verifieras på grund av en bugg i din version av Android. [Klicka här för mer information.]</string>
     <!-- Messaging unavailable alert title -->
     <string name="ErrorMessages.messagingUnavailableMessage">Denna enhet är inte konfigurerad för att skicka meddelanden.</string>
     <!-- Messaging unavailable alert title -->
@@ -207,11 +207,11 @@
     <!-- You can customize your Face ID Spending Limit from the [menu] -->
     <string name="FaceIDSettings.customizeText">Du kan anpassa din utgiftsgräns för Face ID från %1$s.</string>
     <!-- Face Id screen label -->
-    <string name="FaceIDSettings.label">Använd ditt ansikte för att låsa upp din BRD och skicka pengar upp till en satt gräns.</string>
+    <string name="FaceIDSettings.label">Använd ditt ansikte för att låsa upp din Electra och skicka pengar upp till en satt gräns.</string>
     <!-- Title of the screen for setting the Face ID Spending Limit -->
     <string name="FaceIDSettings.linkText">Sida för utgiftsgräns för Face ID</string>
-    <!-- Setting to turn on Face ID for BRD -->
-    <string name="FaceIDSettings.switchLabel">Aktivera Face ID för BRD</string>
+    <!-- Setting to turn on Face ID for Electra -->
+    <string name="FaceIDSettings.switchLabel">Aktivera Face ID för Electra</string>
     <!-- Face ID settings view title -->
     <string name="FaceIDSettings.title">Face ID</string>
     <!-- Instructions on how to turn on face id on the iPhone. Please ensure the name of the menu in this string matches the wording Apple uses in the iPhone menu. -->
@@ -269,13 +269,13 @@
     <!-- Caption for graphics -->
     <string name="Import.leftCaption">Privat Nyckel</string>
     <!-- Import wallet intro screen message -->
-    <string name="Import.message">Privata nycklar trycks ofta på papper som en QR-kod och används för att lagra tillgångar offline. Du löser in en privat nyckel för att överföra alla pengar den kontrollerar in i din BRD med en enda transaktion.</string>
+    <string name="Import.message">Privata nycklar trycks ofta på papper som en QR-kod och används för att lagra tillgångar offline. Du löser in en privat nyckel för att överföra alla pengar den kontrollerar in i din Electra med en enda transaktion.</string>
     <!-- Enter password alert view title -->
     <string name="Import.password">Denna privata nyckel är lösenordsskyddad.</string>
     <!-- password textfield placeholder -->
     <string name="Import.passwordPlaceholder">lösenord</string>
     <!-- Caption for graphics -->
-    <string name="Import.rightCaption">Din BRD-plånbok</string>
+    <string name="Import.rightCaption">Din Electra-plånbok</string>
     <!-- Scan Private key button label -->
     <string name="Import.scan">Läs av privat nyckel</string>
     <!-- Import wallet success alert title -->
@@ -295,9 +295,9 @@
     <!-- Ignore jailbreak warning button -->
     <string name="JailbreakWarnings.ignore">Ignorera</string>
     <!-- Jailbreak warning message -->
-    <string name="JailbreakWarnings.messageWithBalance">ENHETENS SÄKERHET ÄR ÄVENTYRAD\nEn \"intrångs\"-app kan få tillgång till BRDs nyckeldata och stjäla dina Electra! Töm denna plånbok direkt och återställ den på en säker enhet.</string>
+    <string name="JailbreakWarnings.messageWithBalance">ENHETENS SÄKERHET ÄR ÄVENTYRAD\nEn \"intrångs\"-app kan få tillgång till Electras nyckeldata och stjäla dina Electra! Töm denna plånbok direkt och återställ den på en säker enhet.</string>
     <!-- Jailbreak warning message -->
-    <string name="JailbreakWarnings.messageWithoutBalance">ENHETENS SÄKERHET ÄR ÄVENTYRAD\nEn \"intrångs\"-app kan få tillgång till BRDs nyckeldata och stjäla dina Electra! Använd BRD endast på en säker enhet.</string>
+    <string name="JailbreakWarnings.messageWithoutBalance">ENHETENS SÄKERHET ÄR ÄVENTYRAD\nEn \"intrångs\"-app kan få tillgång till Electras nyckeldata och stjäla dina Electra! Använd Electra endast på en säker enhet.</string>
     <!-- Jailbreak warning title -->
     <string name="JailbreakWarnings.title">VARNING</string>
     <!-- Wipe wallet button -->
@@ -319,7 +319,7 @@
     <!-- Location services disabled error -->
     <string name="LocationPlugin.disabled">Platstjänster är inaktiverade.</string>
     <!-- No permissions for location services -->
-    <string name="LocationPlugin.notAuthorized">BRD har inte rätt att utnyttja platstjänster</string>
+    <string name="LocationPlugin.notAuthorized">Electra har inte rätt att utnyttja platstjänster</string>
     <!-- Wallet creation date prefix -->
     <string name="ManageWallet.creationDatePrefix">Du skapade din plånbok på %1$s</string>
     <!-- Manage wallet description text -->
@@ -385,13 +385,13 @@
     <!-- Onboarding screen Page 1 title -->
     <string name="OnboardingPageOne.title">Välkommen till din nya Electra plånbok!</string>
     <!-- Onboarding screen Page 3 subtitle -->
-    <string name="OnboardingPageThree.subtitle">Investera och bredda dig med BRD, lätt och tryggt.</string>
+    <string name="OnboardingPageThree.subtitle">Investera och bredda dig med Electra, lätt och tryggt.</string>
     <!-- Onboarding screen Page 3 title -->
     <string name="OnboardingPageThree.title">Köp och handla med Electra, jetonger och andra digitala valutor.</string>
     <!-- Onboarding screen Page 2 subtitle -->
     <string name="OnboardingPageTwo.subtitle">Vi har skyddade tillgångar värda över 6 miljarder  USD.</string>
     <!-- Onboarding screen Page 2 title -->
-    <string name="OnboardingPageTwo.title">Anslut dig till de 1,5 miljoner människor världen runt som litar på BRD.</string>
+    <string name="OnboardingPageTwo.title">Anslut dig till de 1,5 miljoner människor världen runt som litar på Electra.</string>
     <!-- Eg. Send 1.0Eth to purchase CCC -->
     <string name="PaymentConfirmation.amountText">Skicka %1$s för att köpa %2$s</string>
     <!-- Payment confirmation view title -->
@@ -447,7 +447,7 @@
     <!-- Transaction rejected prompt title -->
     <string name="Prompts.RecommendRescan.title">Transaktionen avslogs</string>
     <!-- Share data prompt body -->
-    <string name="Prompts.ShareData.body">Hjälp till att förbättra BRD genom att dela dina anonyma data med oss</string>
+    <string name="Prompts.ShareData.body">Hjälp till att förbättra Electra genom att dela dina anonyma data med oss</string>
     <!-- Share data prompt title -->
     <string name="Prompts.ShareData.title">Dela anonyma data</string>
     <!-- Enable touch ID prompt body -->
@@ -461,11 +461,11 @@
     <!-- Button on fingerprint prompt so the user can enter their PIN instead -->
     <string name="Prompts.TouchId.usePin.android">PIN-kod</string>
     <!-- Upgrade PIN prompt body. -->
-    <string name="Prompts.UpgradePin.body">BRD har uppgraderat till att använda 6-siffrig PIN-kod. Klicka här för att uppgradera.</string>
+    <string name="Prompts.UpgradePin.body">Electra har uppgraderat till att använda 6-siffrig PIN-kod. Klicka här för att uppgradera.</string>
     <!-- Upgrade PIN prompt title. -->
     <string name="Prompts.UpgradePin.title">Uppgradera PIN-kod</string>
     <!-- Notifications will be added later but users can set their preferences now, which is why we specify "in the future". -->
-    <string name="PushNotifications.body">Slå på aviseringar för att få särskilda meddelanden från BRD i framtiden.</string>
+    <string name="PushNotifications.body">Slå på aviseringar för att få särskilda meddelanden från Electra i framtiden.</string>
     <!-- Push notifications are disabled alert title" -->
     <string name="PushNotifications.disabled">Meddelanden avaktiverade</string>
     <!-- Push notifications settings instructions -->
@@ -499,7 +499,7 @@
     <!-- Enter paper key instruction -->
     <string name="RecoverWallet.instruction">Ange ordnyckel</string>
     <!-- Recover wallet intro -->
-    <string name="RecoverWallet.intro">Återställ BRD med din ordnyckel.</string>
+    <string name="RecoverWallet.intro">Återställ Electra med din ordnyckel.</string>
     <!-- Invalid paper key message -->
     <string name="RecoverWallet.invalid">Den ordnyckel du angav är ogiltig. Dubbelkolla varje ord och försök igen.</string>
     <!-- Previous button accessibility label -->
@@ -527,7 +527,7 @@
     <!-- extimated time -->
     <string name="ReScan.body1">20-45 minuter</string>
     <!-- Syncing explanation -->
-    <string name="ReScan.body2">Om en transaktion visar sig som klar i Electras nätverk men inte i BRD.</string>
+    <string name="ReScan.body2">Om en transaktion visar sig som klar i Electras nätverk men inte i Electra.</string>
     <!-- Syncing explanation -->
     <string name="ReScan.body3">Du får gång på gång ett meddelande som säger att din transaktion avvisades.</string>
     <!-- Start Sync button label -->
@@ -559,11 +559,11 @@
     <!-- Paper Key button title -->
     <string name="SecurityCenter.paperKeyTitle">Ordnyckel</string>
     <!-- PIN button description -->
-    <string name="SecurityCenter.pinDescription">Skyddar ditt BRD från obehöriga användare.</string>
+    <string name="SecurityCenter.pinDescription">Skyddar ditt Electra från obehöriga användare.</string>
     <!-- PIN button title -->
     <string name="SecurityCenter.pinTitle">6-siffrig PIN-kod</string>
     <!-- Touch ID button description -->
-    <string name="SecurityCenter.touchIdDescription">Lås enkelt upp ditt BRD och skicka pengar upp till en inställd gräns.</string>
+    <string name="SecurityCenter.touchIdDescription">Lås enkelt upp ditt Electra och skicka pengar upp till en inställd gräns.</string>
     <!-- Touch ID button title -->
     <string name="SecurityCenter.touchIdTitle">Touch ID</string>
     <!-- Security center fingerprint authentication button -->
@@ -583,13 +583,13 @@
     <!-- Balance: $4.00 -->
     <string name="Send.balance">Saldo: %1$s</string>
     <!-- Instructions how to allow the camera access for the app -->
-    <string name="Send.cameraUnavailabeMessage.android">Tillåt kameraåtkomst under Inställningar &gt; Appar &gt; BRD &gt; Behörigheter</string>
+    <string name="Send.cameraUnavailabeMessage.android">Tillåt kameraåtkomst under Inställningar &gt; Appar &gt; Electra &gt; Behörigheter</string>
     <!-- Permission required to access camera -->
-    <string name="Send.cameraUnavailabeTitle.android">BRD har inte åtkomst till kameran</string>
+    <string name="Send.cameraUnavailabeTitle.android">Electra har inte åtkomst till kameran</string>
     <!-- Camera not allowed message -->
     <string name="Send.cameraunavailableMessage">Gå till Inställningar för att ge tillgång till kameran.</string>
     <!-- Camera not allowed alert title -->
-    <string name="Send.cameraUnavailableTitle">BRD har inte tillgång till kameran</string>
+    <string name="Send.cameraUnavailableTitle">Electra har inte tillgång till kameran</string>
     <!-- Warning when sending to self. -->
     <string name="Send.containsAddress">Destinationen är din egen adress. Du kan inte skicka till dig själv.</string>
     <!-- Could not create transaction alert title -->
@@ -669,7 +669,7 @@
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">Aktivera Segwit</string>
     <!-- Are you enjoying bread alert message body -->
-    <string name="Settings.enjoying">Gillar du BRD?</string>
+    <string name="Settings.enjoying">Gillar du Electra?</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">Utgiftsgräns för Face ID</string>
     <!-- Redeem the funds stored on this private key. -->
@@ -707,7 +707,7 @@
     <!-- Unlink/delete your wallet from the current device. -->
     <string name="Settings.wipe">Ta Bort Länken Från Denna Enhet</string>
     <!-- Share data view body -->
-    <string name="ShareData.body">Hjälp till att förbättra BRD genom att dela dina anonyma uppgifter med oss. Detta inbegriper inga ekonomiska uppgifter. Vi respekterar din ekonomiska sekretess.</string>
+    <string name="ShareData.body">Hjälp till att förbättra Electra genom att dela dina anonyma uppgifter med oss. Detta inbegriper inga ekonomiska uppgifter. Vi respekterar din ekonomiska sekretess.</string>
     <!-- Share data header -->
     <string name="ShareData.header">Dela uppgifter?</string>
     <!-- Share data switch label. -->
@@ -715,7 +715,7 @@
     <!-- button label -->
     <string name="StartPaperPhrase.againButtonTitle">Skriv ner ordnyckel på nytt</string>
     <!-- Paper key explanation text. -->
-    <string name="StartPaperPhrase.body">Din ordnyckel  är enda sättet att återställ BRD om du förlorat din telefon, blivit bestulen på den eller har uppgraderat den.\n\nVi visar dig en lista över ord som du kan skriva ner på ett papper och gömma undan.</string>
+    <string name="StartPaperPhrase.body">Din ordnyckel  är enda sättet att återställ Electra om du förlorat din telefon, blivit bestulen på den eller har uppgraderat den.\n\nVi visar dig en lista över ord som du kan skriva ner på ett papper och gömma undan.</string>
     <!-- button label -->
     <string name="StartPaperPhrase.buttonTitle">Skriv ner ordnyckel</string>
     <!-- Argument is date -->
@@ -767,13 +767,13 @@
     <!-- Fingerprint Is Not Setup -->
     <string name="TouchIdSettings.disabledWarning.title.android">Fingeravtrycksautentisering har inte aktiverats</string>
     <!-- Touch Id screen label -->
-    <string name="TouchIdSettings.label">Använd ditt fingeravtryck för att låsa upp BRD och skicka pengar upp till en inställd gräns.</string>
+    <string name="TouchIdSettings.label">Använd ditt fingeravtryck för att låsa upp Electra och skicka pengar upp till en inställd gräns.</string>
     <!-- Link Text (see TouchIdSettings.customizeText) -->
     <string name="TouchIdSettings.linkText">Sida för utgiftsgräns i Touch ID</string>
     <!-- Spending Limit: b100,000 ($100) -->
     <string name="TouchIdSettings.spendingLimit">Utnyttjandegräns: %1$s (%2$s)</string>
     <!-- Touch id switch label. -->
-    <string name="TouchIdSettings.switchLabel">Aktivera Touch ID för BRD</string>
+    <string name="TouchIdSettings.switchLabel">Aktivera Touch ID för Electra</string>
     <!-- Enable fingerprint for this wallet called Bread -->
     <string name="TouchIdSettings.switchLabel.android">Aktivera fingeravtrycksautentisering</string>
     <!-- Touch ID settings view title -->
@@ -824,7 +824,7 @@
     <string name="Transaction.sentTo">skickat till %1$s</string>
     <!-- eg. Starting balance: $50.00 -->
     <string name="Transaction.starting">Ingående saldo: %1$s</string>
-    <!-- e.g. "[The money you paid was a] Fee for token transfer: BRD" (BRD is the token that was transfered) -->
+    <!-- e.g. "[The money you paid was a] Fee for token transfer: Electra" (Electra is the token that was transfered) -->
     <string name="Transaction.tokenTransfer">Avgift för token-överföring: %1$s</string>
     <!-- Waiting to be confirmed string -->
     <string name="Transaction.waiting">Väntar på bekräftelse. Vissa handlare kräver bekräftelse för att slutföra en transaktion. Uppskattad tid: 1-2 timmar.</string>
@@ -933,7 +933,7 @@
     <!-- Instruction to touch the sensor for fingerprint authentication -->
     <string name="UnlockScreen.touchIdInstructions.android">Touchsensor</string>
     <!-- TouchID prompt text -->
-    <string name="UnlockScreen.touchIdPrompt">Lås upp BRD.</string>
+    <string name="UnlockScreen.touchIdPrompt">Lås upp Electra.</string>
     <!-- Device authentication body -->
     <string name="UnlockScreen.touchIdPrompt.android">Lås upp din Android-enhet för att fortsätta.</string>
     <!-- Unlock with TouchID accessibility label -->
@@ -943,7 +943,7 @@
     <!-- Update PIN caption text -->
     <string name="UpdatePin.caption">Kom ihåg PIN-koden. Om du glömmer den, kommer du inte åt dina Electra.</string>
     <!-- PIN creation info. -->
-    <string name="UpdatePin.createInstruction">Din PIN-kod används för att låsa upp ditt BRD och skicka pengar</string>
+    <string name="UpdatePin.createInstruction">Din PIN-kod används för att låsa upp ditt Electra och skicka pengar</string>
     <!-- Update PIN title -->
     <string name="UpdatePin.createTitle">Ställ in PIN-kod</string>
     <!-- Update PIN title -->
@@ -977,7 +977,7 @@
     <!-- Authorize transaction with touch id message -->
     <string name="VerifyPin.touchIdMessage">Godkänn denna transaktion</string>
     <!-- 'No wallet' warning for watch app -->
-    <string name="Watch.noWalletWarning">Öppna iPhone-appen BRD för att ställa in din plånbok.</string>
+    <string name="Watch.noWalletWarning">Öppna iPhone-appen Electra för att ställa in din plånbok.</string>
     <!-- Dismiss button label -->
     <string name="Webview.dismiss">Avfärda</string>
     <!-- Webview loading error message -->
@@ -985,9 +985,9 @@
     <!-- Updating webview message -->
     <string name="Webview.updating">Uppdaterar...</string>
     <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-    <string name="Welcome.body">BRDplånboken har bytt namn till BRD, med ett splitter nytt utseende och några nya funktioner.\n\nOm du behöver hjälp, leta efter (?)-tecknet i det övre högra hörnet på de flesta skärmar.</string>
+    <string name="Welcome.body">Electraplånboken har bytt namn till Electra, med ett splitter nytt utseende och några nya funktioner.\n\nOm du behöver hjälp, leta efter (?)-tecknet i det övre högra hörnet på de flesta skärmar.</string>
     <!-- Top title of welcome screen -->
-    <string name="Welcome.title">Välkommen till BRD!</string>
+    <string name="Welcome.title">Välkommen till Electra!</string>
     <!-- Wipe wallet alert message -->
     <string name="WipeWallet.alertMessage">Är du säker på att du vill ta bort den här plånboken.</string>
     <!-- Wipe wallet alert title -->
@@ -1001,7 +1001,7 @@
     <!-- Instructions for unlinking the wallet -->
     <string name="WipeWallet.startMessage">Ta bort länken till din plånbok för att ta bort den från denna enhet. När länken till denna plånbok är borttagen kan du skapa en ny plånbok eller återställa en annan plånbok på denna enhet.</string>
     <!-- Start wipe wallet view warning -->
-    <string name="WipeWallet.startWarning">Du kommer inte längre att kunna komma åt din aktuella BRDplånbok från denna enhet. Saldot kommer att kvarstå på frasen.</string>
+    <string name="WipeWallet.startWarning">Du kommer inte längre att kunna komma åt din aktuella Electraplånbok från denna enhet. Saldot kommer att kvarstå på frasen.</string>
     <!-- Unlink this wallet from this device. -->
     <string name="WipeWallet.title">Ta Bort Länken Till Plånboken</string>
     <!-- Wipe wallet button title -->
