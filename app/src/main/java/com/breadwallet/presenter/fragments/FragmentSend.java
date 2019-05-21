@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.breadwallet.BuildConfig;
 import com.breadwallet.R;
+import com.breadwallet.presenter.activities.HomeActivity;
 import com.breadwallet.presenter.activities.WalletActivity;
 import com.breadwallet.presenter.customviews.BRButton;
 import com.breadwallet.presenter.customviews.BRDialogView;
@@ -588,7 +589,7 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
     private void loadParameters() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            CryptoRequest request = (CryptoRequest) arguments.getSerializable(WalletActivity.EXTRA_CRYPTO_REQUEST);
+            CryptoRequest request = (CryptoRequest) arguments.getSerializable(HomeActivity.EXTRA_CRYPTO_REQUEST);
             if (request != null) {
                 saveViewModelData(getActivity(), request);
             }
@@ -664,7 +665,7 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
 
         //is the chosen ISO a crypto (could be also a fiat currency)
         boolean isIsoCrypto = WalletsMaster.getInstance(context).isIsoCrypto(context, mSelectedCurrencyCode);
-        boolean isWalletErc20 = WalletsMaster.getInstance(context).isCurrencyCodeErc20(context, wm.getCurrencyCode());
+//        boolean isWalletErc20 = WalletsMaster.getInstance(context).isCurrencyCodeErc20(context, wm.getCurrencyCode());
         BigDecimal inputAmount = new BigDecimal(Utils.isNullOrEmpty(stringAmount) || stringAmount.equalsIgnoreCase(".") ? "0" : stringAmount);
 
         //smallest crypto e.g. satoshis
@@ -682,11 +683,11 @@ public class FragmentSend extends ModalDialogFragment implements BRKeyboard.OnIn
         //format the fee to the selected ISO
         String formattedFee = CurrencyUtils.getFormattedAmount(context, mSelectedCurrencyCode, isoFee);
 
-        if (isWalletErc20) {
+         /* if (isWalletErc20) {
             BaseWalletManager ethWm = WalletEthManager.getInstance(context);
             isoFee = isIsoCrypto ? rawFee : ethWm.getFiatForSmallestCrypto(context, rawFee, null);
             formattedFee = CurrencyUtils.getFormattedAmount(context, isIsoCrypto ? ethWm.getCurrencyCode() : mSelectedCurrencyCode, isoFee);
-        }
+        } */
 
         boolean isOverTheBalance = inputAmount.compareTo(isoBalance) > 0;
 

@@ -83,7 +83,7 @@ public final class TokenUtil {
     public static void initialize(Context context) {
         String filePath = context.getFilesDir().getAbsolutePath() + File.separator + TOKENS_FILENAME;
         File tokensFile = new File(filePath);
-
+/*
         if (!tokensFile.exists()) {
             InputStream tokensInputStream = context.getResources().openRawResource(R.raw.tokens);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(tokensInputStream));
@@ -103,7 +103,7 @@ public final class TokenUtil {
             } catch (IOException e) {
                 Log.e(TAG, "Could not read from resource file at res/raw/tokens.json ", e);
             }
-        }
+        } */
     }
 
     /**
@@ -143,7 +143,7 @@ public final class TokenUtil {
 
     public static synchronized List<TokenItem> getTokenItems(Context context) {
         if (mTokenItems == null || mTokenItems.isEmpty()) {
-            mTokenItems = getTokensFromFile(context);
+           // mTokenItems = getTokensFromFile(context);
         }
         return mTokenItems;
     }
@@ -244,8 +244,8 @@ public final class TokenUtil {
         }
     }
 
-    private static List<TokenItem> getTokensFromFile(Context context) {
-        try {
+/*    private static List<TokenItem> getTokensFromFile(Context context) {
+   /*     try {
             File tokensFile = new File(context.getFilesDir().getPath() + File.separator + TOKENS_FILENAME);
             FileInputStream fileInputStream = new FileInputStream(tokensFile);
             int size = fileInputStream.available();
@@ -259,7 +259,7 @@ public final class TokenUtil {
             Log.e(TAG, "Error reading tokens.json file: ", e);
             return mTokenItems;
         }
-    }
+    } */
 
     public static String getTokenIconPath(Context context, String currencyCode, boolean withBackground) {
         String bundleResource = APIClient.getInstance(context)

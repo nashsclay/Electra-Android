@@ -169,7 +169,7 @@ public class BreadApp extends Application implements ApplicationLifecycleObserve
     public static void initialize(boolean isApplicationOnCreate) {
         if (bRDWalletExists()) {
             // Initialize the wallet id (also called rewards id).
-            initializeWalletId();
+            // initializeWalletId();
 
             // Initialize application lifecycle observer and register this application for events.
             ProcessLifecycleOwner.get().getLifecycle().addObserver(new ApplicationLifecycleObserver());

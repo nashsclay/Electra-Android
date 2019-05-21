@@ -75,7 +75,7 @@ import java.util.List;
 
 public class HomeActivity extends BRActivity implements InternetManager.ConnectionReceiverListener {
     private static final String TAG = HomeActivity.class.getSimpleName();
-    public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.WalletActivity.EXTRA_DATA";
+    public static final String EXTRA_DATA = "com.breadwallet.presenter.activities.HomeActivity.EXTRA_DATA";
 
 
     private WalletListAdapter mAdapter;
@@ -84,7 +84,7 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
     private MainViewModel mViewModel;
     private BRButton mSendButton;
     private BRButton mReceiveButton;
-    public static final String EXTRA_CRYPTO_REQUEST ="com.breadwallet.presenter.activities.WalletActivity.EXTRA_CRYPTO_REQUEST";
+    public static final String EXTRA_CRYPTO_REQUEST = "com.breadwallet.presenter.activities.HomeActivity.EXTRA_CRYPTO_REQUEST";
     private static final int SEND_SHOW_DELAY = 300;
     private BaseTextView mCurrencyPriceUsd;
     private BaseTextView mBalancePrimary;
