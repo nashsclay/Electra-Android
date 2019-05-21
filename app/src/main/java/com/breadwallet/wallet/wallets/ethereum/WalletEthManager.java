@@ -106,11 +106,11 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
     public List<OnTransactionEventListener> mTransactionEventListeners = new ArrayList<>();
 
     private WalletEthManager(final Context app, byte[] ethPubKey, BREthereumNetwork network) {
-        mUiConfig = new WalletUiConfiguration("#5e6fa5", null,
-                true, WalletManagerHelper.MAX_DECIMAL_PLACES_FOR_UI);
+       mUiConfig = new WalletUiConfiguration("#5e6fa5", null,
+                false, WalletManagerHelper.MAX_DECIMAL_PLACES_FOR_UI);
         mSettingsConfig = new WalletSettingsConfiguration();
 
-        if (Utils.isNullOrEmpty(ethPubKey)) {
+       if (Utils.isNullOrEmpty(ethPubKey)) {
             Log.e(TAG, "WalletEthManager: Using the paperKey to create");
             String paperKey = null;
             try {
@@ -190,7 +190,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
     }
 
     public void estimateGasPrice() {
-        mWallet.estimateGasPrice();
+       // mWallet.estimateGasPrice();
     }
 
     private String[] lookupWords(Context app, String paperKey, String l) {
@@ -396,8 +396,8 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public void refreshCachedBalance(final Context context) {
-        final BigDecimal balance = new BigDecimal(mWallet.getBalance(getUnit()));
-        onBalanceChanged(context, balance);
+       // final BigDecimal balance = new BigDecimal(mWallet.getBalance(getUnit()));
+       // onBalanceChanged(context, balance);
     }
 
     @Override
@@ -445,7 +445,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public CryptoAddress getReceiveAddress(Context app) {
-        return new CryptoAddress(mWallet.getAccount().getPrimaryAddress(), null);
+       return new CryptoAddress(mWallet.getAccount().getPrimaryAddress(), null);
     }
 
     @Override
@@ -630,12 +630,12 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public void getBalance(final int wid, final String address, final int rid) {
-        BREthereumWallet wallet = this.node.getWalletByIdentifier(wid);
+       /* BREthereumWallet wallet = this.node.getWalletByIdentifier(wid);
         BREthereumToken token = wallet.getToken();
         if (null == token)
             getEtherBalance(wallet, wid, address, rid);
         else
-            getTokenBalance(wallet, wid, token.getAddress(), address, rid);
+            getTokenBalance(wallet, wid, token.getAddress(), address, rid); */
     }
 
     protected void getEtherBalance(final BREthereumWallet wallet, final int wid, final String address, final int rid) {
@@ -728,8 +728,8 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public void getGasPrice(final int wid, final int rid) {
-        BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
-            @Override
+       // BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
+          /*  @Override
             public void run() {
                 final String ethUrl = JsonRpcHelper.getEthereumRpcUrl();
                 Log.d(TAG, "Making rpc request to -> " + ethUrl);
@@ -764,8 +764,8 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
                     }
                 });
-            }
-        });
+            } */
+       // });
 
     }
 
@@ -830,8 +830,8 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
             Log.e(TAG, "submitTransaction: rid:" + rid);
         }
 
-        BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
-            @Override
+      //  BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
+        /*    @Override
             public void run() {
                 final String eth_url = JsonRpcHelper.getEthereumRpcUrl();
                 Log.d(TAG, "Making rpc request to -> " + eth_url);
@@ -909,8 +909,8 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                     }
                 });
 
-            }
-        });
+            } */
+      //  });
     }
 
     @Override
@@ -1072,7 +1072,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                                     }
                                 }
 
-                                Log.d(TAG, "Rpc Transactions array length -> " + transactionsArray.length());
+                              //  Log.d(TAG, "Rpc Transactions array length -> " + transactionsArray.length());
                             } catch (JSONException e) {
                                 Log.e(TAG, "onRpcRequestCompleted: ", e);
 
@@ -1087,7 +1087,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public void getLogs(final String contract, final String address, final String event, final int rid) {
-        BRExecutor.getInstance().forBackgroundTasks().execute(new Runnable() {
+      /*  BRExecutor.getInstance().forBackgroundTasks().execute(new Runnable() {
             @Override
             public void run() {
                 final String ethRpcUtl = JsonRpcHelper.createLogsUrl(address, contract, event);
@@ -1142,12 +1142,12 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                     }
                 });
             }
-        });
+        }); */
     }
 
     @Override
     public void getBlockNumber(final int rid) {
-        BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
+     /*   BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
             @Override
             public void run() {
                 final String eth_url = JsonRpcHelper.getEthereumRpcUrl();
@@ -1183,7 +1183,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                     }
                 });
             }
-        });
+        }); */
     }
 
     private void printInfo(String infoText, String walletIso, String eventName) {
@@ -1203,9 +1203,9 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                     printInfo("Wallet Created", currencyCode, event.name());
                     break;
                 case BALANCE_UPDATED:
-                    if (status == Status.SUCCESS) {
-                        WalletsMaster.getInstance(context).refreshBalances(context);
-                        printInfo("New Balance: " + wallet.getBalance(), currencyCode, event.name());
+                        if (status == Status.SUCCESS) {
+                            WalletsMaster.getInstance(context).refreshBalances(context);
+                            printInfo("New Balance: " + wallet.getBalance(), currencyCode, event.name());
                     } else {
                         BRReportsManager.reportBug(new IllegalArgumentException("BALANCE_UPDATED: Failed to update balance: status:"
                                 + status + ", err: " + errorDescription));
@@ -1311,7 +1311,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
 
     @Override
     public void getNonce(final String address, final int rid) {
-        BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
+      /*  BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
             @Override
             public void run() {
                 final String ethUrl = JsonRpcHelper.getEthereumRpcUrl();
@@ -1350,7 +1350,7 @@ public class WalletEthManager extends BaseEthereumWalletManager implements BREth
                     }
                 });
             }
-        });
+        }); */
 
     }
 
