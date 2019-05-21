@@ -668,7 +668,7 @@
     <string name="Settings.earlyAccess">초기 버전을 사용해 보세요</string>
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">Segwit 활성화</string>
-    <!-- Are you enjoying bread alert message body -->
+    <!-- Are you enjoying Electra alert message body -->
     <string name="Settings.enjoying">브레드를 사용하고 있으신가요?</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">페이스 ID 지출 한도</string>
@@ -774,7 +774,7 @@
     <string name="TouchIdSettings.spendingLimit">지불 한도: %1$s (%2$s)</string>
     <!-- Touch id switch label. -->
     <string name="TouchIdSettings.switchLabel">브레드에서</string>
-    <!-- Enable fingerprint for this wallet called Bread -->
+    <!-- Enable fingerprint for this wallet called Electra -->
     <string name="TouchIdSettings.switchLabel.android">지문 본인확인 켜기</string>
     <!-- Touch ID settings view title -->
     <string name="TouchIdSettings.title">터치 ID</string>
@@ -985,7 +985,7 @@
     <!-- Updating webview message -->
     <string name="Webview.updating">업데이트 중...</string>
     <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-    <string name="Welcome.body">Breadwallet이 이름을 Electra로 바꾸고 새롭게 단장하였으며 새로운 기능도 갖췄습니다.\n\n도움이 필요하시면 대부분 화면에서 우측 상단에 있는 (?)을(를) 클릭하십시오.</string>
+    <string name="Welcome.body">Electrawallet이 이름을 Electra로 바꾸고 새롭게 단장하였으며 새로운 기능도 갖췄습니다.\n\n도움이 필요하시면 대부분 화면에서 우측 상단에 있는 (?)을(를) 클릭하십시오.</string>
     <!-- Top title of welcome screen -->
     <string name="Welcome.title">Electra에 환영합니다!</string>
     <!-- Wipe wallet alert message -->

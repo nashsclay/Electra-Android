@@ -670,7 +670,7 @@
     <string name="Settings.earlyAccess">Join Early Access</string>
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">Enable Segwit</string>
-    <!-- Are you enjoying bread alert message body -->
+    <!-- Are you enjoying Electra alert message body -->
     <string name="Settings.enjoying">Are you enjoying Electra?</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">Face ID Spending Limit</string>
@@ -776,7 +776,7 @@
     <string name="TouchIdSettings.spendingLimit">Spending limit: %1$s (%2$s)</string>
     <!-- Touch id switch label. -->
     <string name="TouchIdSettings.switchLabel">Enable Touch ID for Electra</string>
-    <!-- Enable fingerprint for this wallet called Bread -->
+    <!-- Enable fingerprint for this wallet called Electra -->
     <string name="TouchIdSettings.switchLabel.android">Enable Fingerprint Authentication</string>
     <!-- Touch ID settings view title -->
     <string name="TouchIdSettings.title">Touch ID</string>

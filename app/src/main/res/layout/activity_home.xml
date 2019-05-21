@@ -62,7 +62,7 @@
                     android:layout_height="160dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:background="@color/primary_background"
+                    android:background="@drawable/add_wallet_button"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:contentInsetStart="0dp"
@@ -96,7 +96,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$16,904.34 per BTC"
-                            android:textColor="@color/trans_white"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/sub_header"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -107,11 +107,11 @@
                             android:id="@+id/balance_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="11dp"
-                            android:layout_marginBottom="54dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="60dp"
                             android:text="@string/Account.balance"
-                            android:textColor="@color/trans_white"
-                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
                             android:visibility="visible"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -279,14 +279,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_toolbar_layout1"
-            android:layout_below="@id/delisted_token_layout" />
+            android:layout_below="@id/delisted_token_layout" >
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/tx_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/tx_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        </android.support.design.widget.CoordinatorLayout>
 
 
 

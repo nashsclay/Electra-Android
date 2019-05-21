@@ -668,7 +668,7 @@
     <string name="Settings.earlyAccess">Registe-se no Acesso Antecipado</string>
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">Ativar Segwit</string>
-    <!-- Are you enjoying bread alert message body -->
+    <!-- Are you enjoying Electra alert message body -->
     <string name="Settings.enjoying">Está a gostar da Electra?</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">Limite de Gastos do Face ID</string>
@@ -774,7 +774,7 @@
     <string name="TouchIdSettings.spendingLimit">Limite de Gastos: %1$s (%2$s)</string>
     <!-- Touch id switch label. -->
     <string name="TouchIdSettings.switchLabel">Ativar Touch ID para a Electra</string>
-    <!-- Enable fingerprint for this wallet called Bread -->
+    <!-- Enable fingerprint for this wallet called Electra -->
     <string name="TouchIdSettings.switchLabel.android">Ativar a Autenticação por Impressão Digital</string>
     <!-- Touch ID settings view title -->
     <string name="TouchIdSettings.title">Touch ID</string>
@@ -985,7 +985,7 @@
     <!-- Updating webview message -->
     <string name="Webview.updating">A Atualizar...</string>
     <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-    <string name="Welcome.body">As Breadwallets mudaram de nome para Electra, com um visual completamente novo e algumas características novas. \n\nSe precisar de ajuda, procure o (?) no canto superior direito da maioria das telas.</string>
+    <string name="Welcome.body">As Electrawallets mudaram de nome para Electra, com um visual completamente novo e algumas características novas. \n\nSe precisar de ajuda, procure o (?) no canto superior direito da maioria das telas.</string>
     <!-- Top title of welcome screen -->
     <string name="Welcome.title">Bem-vindo ao Electra!</string>
     <!-- Wipe wallet alert message -->

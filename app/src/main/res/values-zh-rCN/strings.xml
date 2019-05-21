@@ -668,7 +668,7 @@
     <string name="Settings.earlyAccess">加入早期访问</string>
     <!-- Enable segwit. -->
     <string name="Settings.EnableSegwit">启用 SegWit</string>
-    <!-- Are you enjoying bread alert message body -->
+    <!-- Are you enjoying Electra alert message body -->
     <string name="Settings.enjoying">您喜欢 Electra 吗？</string>
     <!-- Face ID spending limit label -->
     <string name="Settings.faceIdLimit">面部识别支出限额</string>
@@ -774,7 +774,7 @@
     <string name="TouchIdSettings.spendingLimit">支出限制：%1$s (%2$s)</string>
     <!-- Touch id switch label. -->
     <string name="TouchIdSettings.switchLabel">针对 Electra 启用触摸 ID</string>
-    <!-- Enable fingerprint for this wallet called Bread -->
+    <!-- Enable fingerprint for this wallet called Electra -->
     <string name="TouchIdSettings.switchLabel.android">指纹认证</string>
     <!-- Touch ID settings view title -->
     <string name="TouchIdSettings.title">触摸 ID</string>
@@ -985,7 +985,7 @@
     <!-- Updating webview message -->
     <string name="Webview.updating">正在更新...</string>
     <!-- Welcome screen text. (?) will be replaced with the help icon users should look for. -->
-    <string name="Welcome.body">Breadwallet 更名为 Electra， 并增加了全新的界面和功能。如果您需要帮助，请使用在大多数设备屏幕右上角的(?)</string>
+    <string name="Welcome.body">Electrawallet 更名为 Electra， 并增加了全新的界面和功能。如果您需要帮助，请使用在大多数设备屏幕右上角的(?)</string>
     <!-- Top title of welcome screen -->
     <string name="Welcome.title">欢迎使用Electra！</string>
     <!-- Wipe wallet alert message -->
