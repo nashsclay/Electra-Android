@@ -163,7 +163,7 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
                 List<String> codeList = WalletsMaster.getInstance(context).getAllCurrencyCodesPossible(context);
                 updateCryptoRates(context, codeList);
                 //Update new tokens rate (e.g. CCC)
-                fetchNewTokensData(context);
+                // fetchNewTokensData(context);
             }
         });
         BRExecutor.getInstance().forLightWeightBackgroundTasks().execute(new Runnable() {
