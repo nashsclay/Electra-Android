@@ -482,6 +482,7 @@ public abstract class BaseBitcoinWalletManager extends BRCoreWalletManager imple
         double rate = ent.rate;
         //get crypto amount
         BigDecimal cryptoAmount = amount.divide(new BigDecimal(ONE_BITCOIN_IN_SATOSHIS), getMaxDecimalPlaces(app), BRConstants.ROUNDING_MODE);
+        cryptoAmount = cryptoAmount.multiply(getFiatExchangeRate(app));
         return cryptoAmount.multiply(new BigDecimal(rate));
     }
 
