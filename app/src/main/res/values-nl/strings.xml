@@ -27,7 +27,7 @@
     <!-- Delisted token alert banner message -->
     <string name="Account.delistedToken">Dit token is verwijderd omdat de uitgever besloot de ERC20-ondersteuning stop te zetten. \n\nMogelijk kunt u deze tokens nog steeds naar een ander platform verzenden. Ga voor meer informatie naar onze ondersteuningspagina.</string>
     <!-- $10000 per BTC -->
-    <string name="Account.exchangeRate">%1$s per %2$s</string>
+    <string name="Account.exchangeRate">%1$s BTC per %2$s</string>
     <!-- Loading Wallet Message -->
     <string name="Account.loadingMessage">Portemonnee laden</string>
     <!-- Default wallet name -->
