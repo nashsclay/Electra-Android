@@ -28,6 +28,7 @@ import com.breadwallet.wallet.WalletsMaster;
 import com.breadwallet.wallet.abstracts.BaseWalletManager;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Currency;
 import java.util.Iterator;
 import java.util.List;
@@ -118,12 +119,13 @@ public class DisplayCurrencyActivity extends BaseSettingsActivity {
     }
 
     private void updateExchangeRate() {
+        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
         //set the rate from the last saved
         String iso = BRSharedPrefs.getPreferredFiatIso(this);
         CurrencyEntity entity = RatesDataSource.getInstance(this).getCurrencyByCode(this, "ECA", iso);//hard code BTC for this one
         if (entity != null) {
-            String formattedExchangeRate = CurrencyUtils.getFormattedAmount(DisplayCurrencyActivity.this, BRSharedPrefs.getPreferredFiatIso(this), new BigDecimal(entity.rate));
-            mExchangeText.setText(String.format("%s = %s", CurrencyUtils.getFormattedAmount(this, "BTC", new BigDecimal(1)), formattedExchangeRate));
+            BigDecimal fiatChangeRate = walletManager.getFiatExchangeRate(getApplication()).multiply(new BigDecimal(entity.rate)).setScale(5, RoundingMode.HALF_EVEN);
+            mExchangeText.setText(String.format("%s = %s %s", CurrencyUtils.getFormattedAmount(this, "ECA", new BigDecimal(100000000)), fiatChangeRate.toString(), iso));
         }
         mAdapter.notifyDataSetChanged();
     }

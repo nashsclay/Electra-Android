@@ -71,7 +71,7 @@
                 android:text="@string/Search.sent"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/paragraph"
-                app:buttonType="2"
+                app:buttonType="4"
                 app:customBFont="CircularPro-Book.otf"
                 app:isBreadButton="true"/>
 
@@ -88,7 +88,7 @@
                 android:text="@string/Search.received"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/paragraph"
-                app:buttonType="2"
+                app:buttonType="4"
                 app:customBFont="CircularPro-Book.otf"
                 app:isBreadButton="true"/>
 
@@ -105,7 +105,7 @@
                 android:text="@string/Search.pending"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/paragraph"
-                app:buttonType="2"
+                app:buttonType="4"
                 app:customBFont="CircularPro-Book.otf"
                 app:isBreadButton="true"/>
 
@@ -122,7 +122,7 @@
                 android:text="@string/Search.complete"
                 android:textColor="@color/light_gray"
                 android:textSize="@dimen/paragraph"
-                app:buttonType="2"
+                app:buttonType="4"
                 app:customBFont="CircularPro-Book.otf"
                 app:isBreadButton="true"/>
 

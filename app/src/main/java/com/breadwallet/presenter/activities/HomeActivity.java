@@ -94,6 +94,8 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        final BaseWalletManager walletManager = WalletsMaster.getInstance(this).getCurrentWallet(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ImageButton searchIcon = findViewById(R.id.search_icon);
@@ -131,15 +133,17 @@ public class HomeActivity extends BRActivity implements InternetManager.Connecti
 
                     mBalancePrimary = findViewById(R.id.balance_primary);
 
-                    String fiatBalance = wallet.getFiatBalance().toPlainString();
+                    String fiatBalance = CurrencyUtils.getFormattedAmount(getApplication(),
+                            BRSharedPrefs.getPreferredFiatIso(getApplication()), walletManager.getFiatBalance(getApplication()));
+
+                    BigDecimal cryptoBalance = wallet.convertSats(wallet.getCryptoBalance());
 
                     mBalancePrimary.setText(fiatBalance);
 
                     mBalanceSecondary = findViewById(R.id.balance_secondary);
 
-                    String cryptoBalance = wallet.getCryptoBalance().toPlainString();
-
-                    mBalanceSecondary.setText(cryptoBalance);
+                    mBalanceSecondary.setText(String.format(getString(R.string.Account_balanceValue),
+                            cryptoBalance.toString(), wallet.getCurrencyCode()));
 
                 }
             }

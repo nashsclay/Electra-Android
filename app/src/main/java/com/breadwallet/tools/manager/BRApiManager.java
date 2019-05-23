@@ -343,7 +343,7 @@ public final class BRApiManager implements ApplicationLifecycleObserver.Applicat
                 String target = object.getString("target");
                 JSONObject market = object.getJSONObject("market");
                 String exchange = market.getString("name");
-                BigDecimal last = new BigDecimal(object.getString("last")).setScale(8, RoundingMode.DOWN);
+                BigDecimal last = new BigDecimal(object.getString("last")).setScale(8, RoundingMode.HALF_EVEN);
 
                 if(target.compareToIgnoreCase("BTC") == 0 && last.compareTo(BigDecimal.ZERO) > 0 && !ignoredExchanges.contains(exchange)){
 
