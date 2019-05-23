@@ -26,6 +26,7 @@
 package com.breadwallet.model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Wallet is a simple container class for the data associated with a given wallet, including
@@ -139,6 +140,20 @@ public class Wallet {
      */
     public BigDecimal getCryptoBalance() {
         return mCryptoBalance;
+    }
+
+    /**
+     * Helper function to convert Sats to whole COIN
+     *
+     * @return BigDecimal
+     */
+    public BigDecimal convertSats(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) > 0) {
+            return amount.divide(new BigDecimal(100000000), 8, RoundingMode.DOWN);
+        } else {
+            // This prevents 0 E-8 notation for 0.00000000
+            return BigDecimal.ZERO;
+        }
     }
 
     /**
